@@ -34,7 +34,7 @@ const MainNavBar = () => {
                                     <form class="flex items-center">
                                         <div class="relative w-full">
                                             <div class=" flex items-center pl-3 pointer-events-none">
-                                                <button type="submit" class="absolute inset-y-0 right-0 flex items-center pr-3 py-2.5 px-3 ml-2 text-sm font-medium text-white bg-[#041E42] rounded-r-lg border border-[#041E42] hover:bg-[#21334b] focus:ring-4 focus:outline-none focus:ring-gray-600 "><svg class="w-5 h-5 mr-2 -ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                                                <button type="submit" class="absolute inset-y-0 cursor-pointer right-0 flex items-center pr-3 py-2.5 px-3 ml-2 text-sm font-medium text-white bg-[#041E42] rounded-r-lg border border-[#041E42] hover:bg-[#21334b] focus:ring-4 focus:outline-none focus:ring-gray-600 "><svg class="w-5 h-5 mr-2 -ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
                                             </div>
                                             <input type="text" id="voice-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-400 focus:border-yellow-500 block w-full pl-6 p-2.5 " placeholder="Search " required="" />
                                         </div>

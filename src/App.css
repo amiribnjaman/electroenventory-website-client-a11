@@ -3,6 +3,9 @@
 .App {
   text-align: center;
 }
+h1, h2{
+  font-family: 'Montserrat', sans-serif;
+}
 
 .App-logo {
   height: 40vmin;
