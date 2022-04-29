@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './NavBar.css';
-import MainNavBar from './NavBarTop/MainNavBar/MainNavBar';
+import MainNavBar from './MainNavBar/MainNavBar';
 import NavBarTop from './NavBarTop/NavBarTop';
 
 const NavBar = () => {
