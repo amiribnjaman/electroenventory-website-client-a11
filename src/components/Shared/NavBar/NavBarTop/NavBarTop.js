@@ -18,8 +18,8 @@ const NavBarTop = () => {
 
                     <div className='mt-4'>
                         <Link to="/" className="">
-                            <img src={Logo} className=' h-[50px] mx-auto' alt="Flowbite Logo" />
-                            <h3 className='logo-text text-[15px] font-semibold text-[#0e0101]'>electro<span className='text-[#fc9c20]'>Inventory</span></h3>
+                            <img src={Logo} className=' h-[45px] mx-auto' alt="Flowbite Logo" />
+                            <h3 className='logo-text text-[14px] font-semibold text-[#0e0101]'>electro<span className='text-[#fc9c20]'>Inventory</span></h3>
                         </Link>
                     </div>
                     <div className="flex md:block w-auto" id="mobile-menu">

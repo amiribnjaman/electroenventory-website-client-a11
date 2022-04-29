@@ -9,8 +9,8 @@ const Banner = () => {
             <div className='banner-text'>
                 <h1 className='text-4xl font-bold text-center'>Find & Manage your products</h1>
                 <div className='w-2/3 mx-auto text-center'>
-                    <h6 className='font-semibold'>with Your beloved<span className='text-[#fc9c20]'> Electro Inventory</span></h6>
-                    <p className='text-slate-700 font-semibold text-sm mt-2'>This is a Product Inventory or wirehouse website. Her you can add, delete and manage your product simply. </p>
+                    <h6 className='font-semibold'>with Your beloved<span className='text-[#FFC21F]'> Electro Inventory</span></h6>
+                    <p className='text-slate-700 font-semibold text-sm mt-2'>This is a Product Inventory or warehouse website. Here you can add, delete and manage your products simply. </p>
                 </div>
             </div>
         </div>
