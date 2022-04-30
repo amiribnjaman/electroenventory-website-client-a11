@@ -4,13 +4,14 @@ import './Login.css';
 import UserVector from '../../../Assets/Img/user.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeftLong } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate()
 
     // Handle go back to home
     const handleGoBack = () => {
-        window.history.go(-1)
+        navigate('/')
     }
     return (
         <div className='shadow-xl shadow-[rgb(132,179,223)] mt-14 mb-10 w-10/12 mx-auto md:flex'>
@@ -36,7 +37,7 @@ const Login = () => {
                             <button type="submit" class="text-slate-800 mx-auto block hover:bg-[#f8b705] focus:ring-4 bg-[#FFC21F] focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm w-full sm:w-auto px-16 py-2.5 text-center ">Login</button>
                         </div>
                     </form>
-                    <h6 className='text-center mt-3 text-white font-semibold'>Haven't account? <Link to='/signup' className='underline text-[#FFC21F]'>Sign up</Link></h6>
+                    <h6 className='text-center mt-3 text-white font-semibold text-[14px]'>Haven't account? <Link to='/signup' className='underline text-[#FFC21F]'>Sign up</Link></h6>
                 </div>
             </div>
         </div>

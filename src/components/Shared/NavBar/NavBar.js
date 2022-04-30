@@ -2,21 +2,21 @@ import React from 'react';
 import './NavBar.css';
 import MainNavBar from './MainNavBar/MainNavBar';
 import NavBarTop from './NavBarTop/NavBarTop';
-// import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const NavBar = () => {
-    // const location = useLocation()
-    // const path = location.pathname
+    const location = useLocation()
+    const path = location.pathname
 
     return (
         <>
             {/* {
                 path.includes('login') ?
                     '' : */}
-                    <div className=''>
-                        <NavBarTop />
-                        <MainNavBar />
-                    </div>
+            <div className={path.includes('login') || path.includes('signup') ? 'hidden' : 'block'}>
+                <NavBarTop />
+                <MainNavBar />
+            </div>
             {/* } */}
         </>
     );

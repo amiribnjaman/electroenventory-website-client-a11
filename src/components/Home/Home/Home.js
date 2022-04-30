@@ -8,11 +8,9 @@ import Footer from '../../Shared/Footer/Footer';
 const Home = () => {
     return (
         <div>
-            <NavBar />
             <Banner />
             <InventoryItems />
             <Membership />
-            {/* <Footer /> */}
         </div>
     );
 };
