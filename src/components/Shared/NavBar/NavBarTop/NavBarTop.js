@@ -1,10 +1,15 @@
-import { faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRightToBracket, faUserAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../../../Assets/Img/logo.png'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../../firebase.init'
 
 const NavBarTop = () => {
+    const [user, loading, error] = useAuthState(auth);
+    // console.log(user?.email);
+    const [showUserProfile, setShowUserPorfile] = useState(false)
     return (
         <div>
             <nav className="w-10/12 mx-auto border-gray-200 px-2 py-2 sm:px-4 rounded dark:bg-gray-800">
@@ -25,10 +30,31 @@ const NavBarTop = () => {
                     <div className="flex md:block w-auto" id="mobile-menu">
                         <ul className="flex flex-col md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
                             <li>
-                                <Link to="/login" className="block py-2 mt-3 pr-4 pl-3 rounded md:bg-transparent text-black md:p-0 dark:text-white" aria-current="page">
-                                    <FontAwesomeIcon className='w-8 text-[17px] text-black' icon={faArrowRightToBracket}/>
-                                    <p className='text-[14px]'>Login</p>
-                                </Link>
+                                {
+                                    user?.email ?
+                                        <button
+                                        onClick={() =>setShowUserPorfile(!showUserProfile)}
+                                        className="block max-h-10 py-2 mt-4 pr-4 pl-3 rounded md:bg-transparent text-black md:p-0 dark:text-white" aria-current="page">
+                                            <FontAwesomeIcon className='w-8 ml-1 text-[17px] text-black' icon={faUserAlt} />
+                                            
+                                            <p className='text-[14px]'>{user?.email}</p>
+                                            {/*relative top-4 right-[-300px]  */}
+                                            {/* relative top-4 left-0 z-10 */}
+                                            <div className={`mt-2 ${showUserProfile ? 'block' : 'hidden'}`}>
+                                                <ul className='w-24 rounded mx-auto h-14 shadow-lg bg-white'>
+                                                    <li> <Link to=''>Profile</Link></li>
+                                                    <li><button></button>Logout</li>
+                                                </ul>
+                                            </div>
+                                        </button> :
+
+                                        <Link to="/login" className="block py-2 mt-3 pr-4 pl-3 rounded md:bg-transparent text-black md:p-0 dark:text-white" aria-current="page">
+                                            <FontAwesomeIcon className='w-8 ml-1 text-[17px] text-black' icon={faArrowRightToBracket} />
+                                            <p className='text-[14px]'>Login</p>
+                                        </Link>
+                                }
+
+
                             </li>
                         </ul>
                     </div>
