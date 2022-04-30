@@ -25,7 +25,7 @@ const NavBarTop = () => {
                     <div className="flex md:block w-auto" id="mobile-menu">
                         <ul className="flex flex-col md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
                             <li>
-                                <Link to="/" className="block py-2 mt-3 pr-4 pl-3 rounded md:bg-transparent text-black md:p-0 dark:text-white" aria-current="page">
+                                <Link to="/login" className="block py-2 mt-3 pr-4 pl-3 rounded md:bg-transparent text-black md:p-0 dark:text-white" aria-current="page">
                                     <FontAwesomeIcon className='w-8 text-[17px] text-black' icon={faArrowRightToBracket}/>
                                     <p className='text-[14px]'>Login</p>
                                 </Link>
