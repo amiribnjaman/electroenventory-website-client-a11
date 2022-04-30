@@ -1,3 +1,4 @@
+import { signOut } from 'firebase/auth';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 // import auth from '../../../firebase.init';
 import auth from '../../../firebase.init'
@@ -11,7 +12,10 @@ const useFirebase = () => {
         signInWithGoogle()
     }
 
-    return { handleSingninWithGoogle }
+    const handleLogout = () => {
+        signOut(auth);
+    }
+    return { handleSingninWithGoogle, handleLogout }
 }
 
 export default useFirebase;

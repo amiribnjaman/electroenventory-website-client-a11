@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 import Logo from '../../../../Assets/Img/logo.png'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init'
+import useFirebase from '../../../hooks/useFirebase/useFirebase';
 
 const NavBarTop = () => {
     const [user, loading, error] = useAuthState(auth);
-    // console.log(user?.email);
+    const {handleLogout} = useFirebase()
     const [showUserProfile, setShowUserPorfile] = useState(false)
     return (
         <div>
@@ -36,14 +37,13 @@ const NavBarTop = () => {
                                         onClick={() =>setShowUserPorfile(!showUserProfile)}
                                         className="block max-h-10 py-2 mt-4 pr-4 pl-3 rounded md:bg-transparent text-black md:p-0 dark:text-white" aria-current="page">
                                             <FontAwesomeIcon className='w-8 ml-1 text-[17px] text-black' icon={faUserAlt} />
-                                            
                                             <p className='text-[14px]'>{user?.email}</p>
-                                            {/*relative top-4 right-[-300px]  */}
-                                            {/* relative top-4 left-0 z-10 */}
+
+                                            {/* User profile and logout button */}
                                             <div className={`mt-2 ${showUserProfile ? 'block' : 'hidden'}`}>
                                                 <ul className='w-24 rounded mx-auto h-14 shadow-lg bg-white'>
                                                     <li> <Link to=''>Profile</Link></li>
-                                                    <li><button></button>Logout</li>
+                                                    <li><button onClick={handleLogout}>Logout</button></li>
                                                 </ul>
                                             </div>
                                         </button> :
