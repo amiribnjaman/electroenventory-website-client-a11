@@ -11,7 +11,7 @@ const NavBarTop = () => {
     const [user, loading, error] = useAuthState(auth);
     const { handleLogout } = useFirebase()
     const [showUserProfile, setShowUserPorfile] = useState(false)
-    console.log(user);
+
     return (
         <div>
             <nav className="w-10/12 mx-auto border-gray-200 px-2 py-2 sm:px-4 rounded dark:bg-gray-800">
@@ -38,7 +38,7 @@ const NavBarTop = () => {
                                             onClick={() => setShowUserPorfile(!showUserProfile)}
                                             className="block max-h-10 w-14 py-2 mt-4 pr-4 pl-3 rounded md:bg-transparent text-black md:p-0 dark:text-white" aria-current="page">
                                             <FontAwesomeIcon className='w-8 ml-1 text-[17px] text-black' icon={faUserAlt} />
-                                            <p className='text-[14px]'>{user?.displayName || 'User'}</p>
+                                            <p className='text-[14px]'>{user?.email?.split('@')[0] || 'User'}</p>
 
                                             {/* User profile and logout button */}
                                             <div style={{marginLeft: '-8px'}} className={`mt-2 w-24  ${showUserProfile ? 'block' : 'hidden'}`}>

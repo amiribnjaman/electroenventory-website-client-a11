@@ -7,15 +7,18 @@ import UserVector from '../../../Assets/Img/user1.png'
 import GoogleLogo from '../../../Assets/Img/Glogo.png'
 import useFirebase from '../../hooks/useFirebase/useFirebase';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { updateProfile } from "firebase/auth";
+import { getAuth, updateProfile } from "firebase/auth";
+
 import auth from '../../../firebase.init'
 
 const Signup = () => {
-    let customErr;
+    const [customErr, setCustomErr] = useState('')
     const navigate = useNavigate()
     const {
         handleSingninWithGoogle,
         error } = useFirebase()
+
+    const auth = getAuth();
 
     const [
         createUserWithEmailAndPassword,
@@ -23,6 +26,7 @@ const Signup = () => {
         loading,
         signupError,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
 
     const [updateProfile, updating, profileError] = useUpdateProfile(auth);
 
@@ -88,17 +92,33 @@ const Signup = () => {
         try {
             if (userName.name && userEmail.email && userPassword.password && userConfirmPassword.confirmPassword) {
                 await createUserWithEmailAndPassword(userEmail.email, userPassword.password)
-                await updateProfile(auth.currentUser, { displayName: userName.name });
+                console.log(auth.currentUser);
+                console.log(user?.UserImpl?.displayName);
+                await updateProfile(auth.currentUser, {
+                    displayName: "Jane Q. User"
+                }).then(() => {
+                    console.log('name added');
+                }).catch((error) => {
+                    // An error occurred
+                    // ...
+                })
                 setErrors('')
             } else {
                 setErrors(<p className='text-[13px] text-white shadow mb-2 bg-blue-600 rounded-full text-center font-semibold'>Please fill up all required fields.</p>)
             }
         }
-        catch (errro) {
+        catch (error) {
             console.log(error);
         }
 
     }
+
+    // signup email existing error 
+    useEffect(() => {
+        if (signupError?.code === 'auth/email-already-in-use') {
+            setCustomErr(<p className='text-[13px] text-white shadow mb-2 bg-blue-600 rounded-full text-center font-semibold'>Email already exist. Please try to login. </p>);
+        }
+    }, [signupError?.code, customErr])
 
     if (user) {
         navigate('/')
@@ -118,7 +138,10 @@ const Signup = () => {
                         <div className='user-vector w-[70px] h-[70px] mx-auto mb-3'>
                             <img className='w-full h-full rounded-full' src={UserVector} alt="" />
                         </div>
-                        <p className='text-sm text-white py-1 mb-1 shadow bg-blue-600 rounded-full text-center font-semibold'>{error && 'Something wrong. Please try agin!'}</p>
+                        {error ?
+                            <p className='text-sm text-white py-1 mb-1 shadow bg-blue-600 rounded-full text-center font-semibold'>{error && 'Something wrong. Please try agin!'}
+                            </p> : ''}
+                        {customErr && customErr}
                         <div class="mb-3">
                             <input
                                 onBlur={handleNameBlur} type="text" id="text" name='name' class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Your Name*" required="" />

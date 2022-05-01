@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import LoginVector from '../../../Assets/Img/login.jpg'
 import './Login.css';
 import UserVector from '../../../Assets/Img/user.png'
@@ -7,17 +7,80 @@ import { faLeftLong } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import GoogleLogo from '../../../Assets/Img/Glogo.png'
 import useFirebase from '../../hooks/useFirebase/useFirebase';
-import { toast, ToastContainer } from 'react-toastify';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 
 const Login = () => {
     const navigate = useNavigate()
     const { handleSingninWithGoogle, error } = useFirebase()
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        loginError,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    const [customLoginError, setCustomLoginError] = useState('')
+
+    const [userEmail, setuserEmail] = useState({
+        email: '',
+        error: ''
+    })
+    const [userPassword, setuserPassword] = useState({
+        password: '',
+        error: ''
+    })
+
+    const [requiredErrors, setRequiredErrors] = useState('')
 
     // Handle go back to home
     const handleGoBack = () => {
         navigate('/')
     }
+
+    // handle login email onchange
+    const handleUserEmailBlur = e => {
+        const email = e.target.value
+        if (email) {
+            setuserEmail({ email: email })
+        } else {
+            setuserEmail({ error: <p className='text-[13px] text-white shadow bg-blue-600 rounded-full pl-3 mt-1 font-semibold'>Please provide your email</p> })
+        }
+
+    }
+
+    // handle login user password
+    const handleUserPasswordBlur = e => {
+        const password = e.target.value
+        if (password) {
+            setuserPassword({ password: password })
+        } else {
+            setuserPassword({ error: <p className='text-[13px] text-white shadow bg-blue-600 rounded-full pl-3 mt-1 font-semibold'>Please provide your password.</p> })
+        }
+    }
+
+    // Handle login form
+    const handleLoginForm = e => {
+        e.preventDefault()
+        if (userEmail.email && userPassword.password) {
+            setRequiredErrors('')
+            signInWithEmailAndPassword(userEmail.email, userPassword.password)
+        } else {
+            setRequiredErrors(<p className='text-[13px] text-white my-3 shadow bg-blue-600 rounded-full text-center font-semibold'>Please provide valid Email and password.</p>)
+        }
+    }
+
+    if (user) {
+        navigate('/')
+    }
+
+    useEffect(() => {
+        if (loginError?.code === 'auth/user-not-found') {
+            setCustomLoginError(<p className='text-[13px] text-white my-3 shadow bg-blue-600 rounded-full text-center font-semibold'>Email or password is Invalid. Please try again.</p>)
+        }
+    }, [loginError?.code])
+
 
     return (
         <>
@@ -30,21 +93,33 @@ const Login = () => {
                 </div>
                 <div className='w-1/2 pt-16 bg-[#0070DC]'>
                     <div className='w-9/12 mx-auto '>
-                        <form className='mt-4'>
+                        <form className='mt-4' onSubmit={handleLoginForm}>
                             <div className='user-vector w-[70px] h-[70px] mx-auto mb-2'>
                                 <img className='w-full h-full rounded-full' src={UserVector} alt="" />
                             </div>
-                            <p className='text-sm text-red-600 shadow bg-blue-600 rounded-full text-center font-semibold'>{error && 'Something wrong. Please try agin!'}</p>
+                            {
+                                error || loginError ?
+                                    <p className='text-[13px] text-white my-2 shadow bg-blue-600 rounded-full text-center font-semibold'>{error || loginError ? 'Something wrong. Please try again!' : ''}</p> : ''
+                            }
+                            {customLoginError && customLoginError}
                             <div class="mb-4 mt-1">
-                                <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-full text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Your Email" required="" />
+                                <input
+                                    onBlur={handleUserEmailBlur}
+                                    type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-full text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Your Email" required="" />
+                                {userEmail.error && userEmail.error}
                             </div>
                             <div class="mb-4">
-                                <input type="password" id="password" class="bg-gray-50 rounded-full border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required="" placeholder='Your Password' />
+                                <input
+                                    onBlur={handleUserPasswordBlur}
+                                    type="password" id="password" class="bg-gray-50 rounded-full border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required="" placeholder='Your Password' />
+                                {userPassword.error && userPassword.error}
                             </div>
+                            {requiredErrors && requiredErrors}
                             <div className=''>
                                 <button type="submit" class="text-slate-800 mx-auto block hover:bg-[#f8b705] focus:ring-4 bg-[#FFC21F] focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm w-full sm:w-auto px-16 py-2.5 text-center ">Login</button>
                             </div>
                         </form>
+
                         <h6 className='text-center my-3 text-white font-semibold text-[14px]'>Haven't account? <Link to='/signup' className='underline text-[#FFC21F]'>Sign up</Link></h6>
 
                         <div className='flex my-2 items-center justify-center mx-auto w-11/12'>
