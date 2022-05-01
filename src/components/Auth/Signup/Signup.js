@@ -1,4 +1,4 @@
-import { faLeftLong } from '@fortawesome/free-solid-svg-icons';
+import { faLeftLong, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -13,6 +13,7 @@ import auth from '../../../firebase.init'
 
 const Signup = () => {
     const [customErr, setCustomErr] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate()
     const {
         handleSingninWithGoogle,
@@ -153,10 +154,19 @@ const Signup = () => {
                                 type="email" id="email" name='email' class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Your Email*" required="" />
                             {userEmail?.error && userEmail?.error}
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 relative">
                             <input
                                 onBlur={handlePasswordBlur}
-                                type="password" name='password' id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder='Password*' required="" />
+                                type={!showPassword ? 'password' : 'text'} name='password' id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder='Password*' required="" />
+
+                            <div
+                                onClick={() => setShowPassword(!showPassword)}
+                                className='absolute top-2 right-5 cursor-pointer text-slate-400'>
+                                {
+                                    !showPassword ? <FontAwesomeIcon icon={faEye} title='Show password' /> : <FontAwesomeIcon icon={faEyeSlash} title='Hide password' />
+                                }
+                            </div>
+
                             {userPassword?.error && userPassword?.error}
                         </div>
                         <div class="mb-5">

@@ -38,10 +38,12 @@ const NavBarTop = () => {
                                             onClick={() => setShowUserPorfile(!showUserProfile)}
                                             className="block max-h-10 w-14 py-2 mt-4 pr-4 pl-3 rounded md:bg-transparent text-black md:p-0 dark:text-white" aria-current="page">
                                             <FontAwesomeIcon className='w-8 ml-1 text-[17px] text-black' icon={faUserAlt} />
-                                            <p className='text-[14px]'>{user?.email?.split('@')[0] || 'User'}</p>
+                                            <div>
+                                                <p className='text-[14px]'>{user?.email?.split('@')[0] || 'User'}</p>
+                                            </div>
 
                                             {/* User profile and logout button */}
-                                            <div style={{marginLeft: '-8px'}} className={`mt-2 w-24  ${showUserProfile ? 'block' : 'hidden'}`}>
+                                            <div style={{ marginLeft: '-8px' }} className={`mt-2 w-24  ${showUserProfile ? 'block' : 'hidden'}`}>
                                                 <ul className=' h-18 mr-4 rounded mx-auto shadow-lg bg-white'>
                                                     <li className='hover:bg-slate-100 py-[2px]'> <Link to='' >Profile</Link></li>
                                                     <li className='hover:bg-slate-100 py-[2px] pb-[5px]'><button onClick={handleLogout}>Logout</button></li>
