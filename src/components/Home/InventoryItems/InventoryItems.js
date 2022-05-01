@@ -10,7 +10,7 @@ const InventoryItems = () => {
             .then(data => setInventoryItems(data))
     }, [])
     return (
-        <div className='mt-6 mb-8 w-10/12 mx-auto grid grid-cols-3 gap-6'>
+        <div className='mt-6 mb-12 w-10/12 mx-auto grid grid-cols-3 gap-6'>
             {
                 inventoryItems.map(inventoryItem => <InventorySingleItem
                     key={inventoryItem.id}

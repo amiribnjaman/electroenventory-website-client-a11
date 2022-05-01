@@ -1,19 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import cardImg from '../../../Assets/Img/card-laptop.jpg'
 
 const InventorySingleItem = ({ inventoryItem }) => {
     console.log(inventoryItem);
-    const { _id, name, desc, image, price, quentity, spplier_name } = inventoryItem
+    const { _id, name, description, image, price, quentity, spplier_name } = inventoryItem
 
     return (
-        <div>
-            <div class="p-3 max-w-sm bg-white rounded-lg hover:border hover:border-slate-100 hover:shadow-md">
+        <div> 
+            <div style={{height: '600px'}} class=" p-3 max-w-sm bg-white rounded-lg hover:border hover:border-slate-100 hover:shadow-md">
                 <img style={{ width: '100%', height: '300px' }} src={image} alt="" />
                 <div className='md:px-1'>
-                    <div className='mb-2 ml-1'>
+                    <div className='mb-2 ml-1 mt-2'>
                         <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{name}</h5>
-                        <p class="mb-2 font-normal text-[15px] text-gray-700 dark:text-gray-400">{desc}</p>
+                        <p class="mb-2 font-normal text-[14px] text-gray-700 dark:text-gray-400">{description}</p>
                         <h5>{price}</h5>
                         <h5>{quentity}</h5>
                         <h5>{spplier_name}</h5>
