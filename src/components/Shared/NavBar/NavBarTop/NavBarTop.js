@@ -1,4 +1,4 @@
-import { faArrowRightToBracket, faUserAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRightToBracket, faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -9,8 +9,9 @@ import useFirebase from '../../../hooks/useFirebase/useFirebase';
 
 const NavBarTop = () => {
     const [user, loading, error] = useAuthState(auth);
-    const {handleLogout} = useFirebase()
+    const { handleLogout } = useFirebase()
     const [showUserProfile, setShowUserPorfile] = useState(false)
+    console.log(user);
     return (
         <div>
             <nav className="w-10/12 mx-auto border-gray-200 px-2 py-2 sm:px-4 rounded dark:bg-gray-800">
@@ -30,20 +31,20 @@ const NavBarTop = () => {
                     </div>
                     <div className="flex md:block w-auto" id="mobile-menu">
                         <ul className="flex flex-col md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-                            <li>
+                            <li className='w-14'>
                                 {
                                     user?.email ?
                                         <button
-                                        onClick={() =>setShowUserPorfile(!showUserProfile)}
-                                        className="block max-h-10 py-2 mt-4 pr-4 pl-3 rounded md:bg-transparent text-black md:p-0 dark:text-white" aria-current="page">
+                                            onClick={() => setShowUserPorfile(!showUserProfile)}
+                                            className="block max-h-10 w-14 py-2 mt-4 pr-4 pl-3 rounded md:bg-transparent text-black md:p-0 dark:text-white" aria-current="page">
                                             <FontAwesomeIcon className='w-8 ml-1 text-[17px] text-black' icon={faUserAlt} />
-                                            <p className='text-[14px]'>{user?.email}</p>
+                                            <p className='text-[14px]'>{user?.displayName || 'User'}</p>
 
                                             {/* User profile and logout button */}
-                                            <div className={`mt-2 ${showUserProfile ? 'block' : 'hidden'}`}>
-                                                <ul className='w-24 rounded mx-auto h-14 shadow-lg bg-white'>
-                                                    <li> <Link to=''>Profile</Link></li>
-                                                    <li><button onClick={handleLogout}>Logout</button></li>
+                                            <div style={{marginLeft: '-8px'}} className={`mt-2 w-24  ${showUserProfile ? 'block' : 'hidden'}`}>
+                                                <ul className=' h-18 mr-4 rounded mx-auto shadow-lg bg-white'>
+                                                    <li className='hover:bg-slate-100 py-[2px]'> <Link to='' >Profile</Link></li>
+                                                    <li className='hover:bg-slate-100 py-[2px] pb-[5px]'><button onClick={handleLogout}>Logout</button></li>
                                                 </ul>
                                             </div>
                                         </button> :
