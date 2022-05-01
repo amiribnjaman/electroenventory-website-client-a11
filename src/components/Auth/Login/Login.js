@@ -113,6 +113,8 @@ const Login = () => {
                                 <input
                                     onBlur={handleUserPasswordBlur}
                                     type={!passwordShow ? 'password' : 'text'} id="password" class="bg-gray-50 rounded-full border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required="" placeholder='Your Password' />
+
+                                {/* Show and hide password */}
                                 <div onClick={() => setPasswordShow(!passwordShow)} className='absolute top-2 right-5 cursor-pointer text-slate-400'>
                                     {!passwordShow ? <FontAwesomeIcon title='Show password' icon={faEye} />
                                         : <FontAwesomeIcon title='Hide password' icon={faEyeSlash} />

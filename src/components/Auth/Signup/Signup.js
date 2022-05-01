@@ -14,6 +14,7 @@ import auth from '../../../firebase.init'
 const Signup = () => {
     const [customErr, setCustomErr] = useState('')
     const [showPassword, setShowPassword] = useState(false)
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false)
     const navigate = useNavigate()
     const {
         handleSingninWithGoogle,
@@ -159,6 +160,7 @@ const Signup = () => {
                                 onBlur={handlePasswordBlur}
                                 type={!showPassword ? 'password' : 'text'} name='password' id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder='Password*' required="" />
 
+                            {/* Show and hide password */}
                             <div
                                 onClick={() => setShowPassword(!showPassword)}
                                 className='absolute top-2 right-5 cursor-pointer text-slate-400'>
@@ -169,10 +171,19 @@ const Signup = () => {
 
                             {userPassword?.error && userPassword?.error}
                         </div>
-                        <div class="mb-5">
+                        <div class="mb-5 relative">
                             <input
                                 onBlur={handleConfirmPasswordBlur}
-                                type="password" name='confirmPassword' id="repeat-password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required="" placeholder='Confirm Password*' />
+                                type={!showConfirmPassword ? 'password' : 'text'} name='confirmPassword' id="repeat-password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required="" placeholder='Confirm Password*' />
+
+                            {/* Show and hide confirm password */}
+                            <div
+                                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                className='absolute top-2 right-5 cursor-pointer text-slate-400'>
+                                {
+                                    !showConfirmPassword ? <FontAwesomeIcon icon={faEye} title='Show password' /> : <FontAwesomeIcon icon={faEyeSlash} title='Hide password' />
+                                }
+                            </div>
                             {userConfirmPassword?.error && userConfirmPassword?.error}
                         </div>
                         {erros && erros}

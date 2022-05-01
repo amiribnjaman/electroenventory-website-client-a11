@@ -8,13 +8,6 @@ const firebaseConfig = {
     storageBucket: process.env.REACT_APP_storageBucket,
     messagingSenderId: process.env.REACT_APP_messagingSenderId,
     appId: process.env.REACT_APP_appId
-
-    // apiKey: "AIzaSyDalQfPN8XXlb7H9exS4I4Q5kPBkj-68mk",
-    // authDomain: "electronics-inventory-a11.firebaseapp.com",
-    // projectId: "electronics-inventory-a11",
-    // storageBucket: "electronics-inventory-a11.appspot.com",
-    // messagingSenderId: "588465238901",
-    // appId: "1:588465238901:web:ec60d118c6d4cc1390593c"
 };
 
 // Initialize Firebase
