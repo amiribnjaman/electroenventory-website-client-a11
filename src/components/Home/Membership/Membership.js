@@ -6,7 +6,7 @@ const Membership = () => {
             <div className="grid w-10/12 mx-auto gap-8 py-20 px-6">
                 <div className='text-white text-center'>
                     <h2 className='text-2xl font-semibold'>Get premium Membership</h2>
-                    <p className='text-[13px]'>By getting our premium Membership you can Store and manage your products smoothly.</p>
+                    <p className='text-[13px] w-4/6 mx-auto'>By getting our premium Membership, You will obtain few extra features and you can Store and manage your products more easy & smoothly.</p>
 
                     <div class="relative w-1/2 mx-auto mt-6">
                         <div class=" flex items-center pl-3 pointer-events-none">

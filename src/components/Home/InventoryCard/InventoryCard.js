@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const InventorySingleItem = ({ inventoryItem }) => {
+const InventoryCard = ({ inventoryItem }) => {
     console.log(inventoryItem);
-    const { _id, name, description, image, price, quentity, spplier_name } = inventoryItem
+    const { _id, name, description, image, price, quantity, spplier_name } = inventoryItem
 
     return (
         <div> 
@@ -13,11 +13,11 @@ const InventorySingleItem = ({ inventoryItem }) => {
                     <div className='mb-2 ml-1 mt-2'>
                         <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{name}</h5>
                         <p class="mb-2 font-normal text-[14px] text-gray-700 dark:text-gray-400">{description}</p>
-                        <h5>{price}</h5>
-                        <h5>{quentity}</h5>
-                        <h5>{spplier_name}</h5>
+                        <h5 className='font-semibold'>Price: <span>{price} USD</span> </h5>
+                        <h5 className='font-semibold'>In stock: <span>{quantity} pics</span></h5>
+                        <h5 className='font-semibold'>Diller: <span className=' font-light'>{spplier_name}</span></h5>
                     </div>
-                    <Link to='' class="inline-flex items-center py-2 text-center px-5 text-sm font-medium text-black border border-slate-800 hover:text-white rounded-lg hover:bg-[#0070DC] focus:ring-4 focus:outline-none focus:ring-blue-300">
+                    <Link to={`/inventory/${_id}`} class="inline-flex items-center py-2 text-center px-10 text-sm font-medium text-black border border-slate-800 hover:text-white rounded-lg hover:border-[#0070DC] hover:bg-[#0070DC] focus:ring-4 focus:outline-none focus:ring-blue-300">
                         Update
                         <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </Link>
@@ -27,4 +27,4 @@ const InventorySingleItem = ({ inventoryItem }) => {
     );
 };
 
-export default InventorySingleItem;
+export default InventoryCard;
