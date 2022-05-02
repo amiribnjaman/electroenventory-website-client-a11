@@ -1,4 +1,4 @@
-import './App.css';
+
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home/Home';
 import Login from './components/Auth/Login/Login';
@@ -8,6 +8,8 @@ import Footer from './components/Shared/Footer/Footer';
 import InventorySpecificItemDetails from './components/Home/InventorySpecificItemDetails/InventorySpecificItemDetails';
 import ProtectedRoute from './components/Auth/ProtectedRoute/ProtectedRoute';
 import AddItem from './components/AddItem/AddItem';
+import ManageItems from './components/ManageItems/ManageItems';
+import './App.css';
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
             <InventorySpecificItemDetails />
           </ProtectedRoute>} />
         <Route path='/additem' element={<AddItem />} />
+        <Route path='/manageitems' element={<ManageItems />} />
       </Routes>
       <Footer />
     </div>
