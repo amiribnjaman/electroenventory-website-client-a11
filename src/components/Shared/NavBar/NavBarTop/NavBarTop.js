@@ -11,7 +11,6 @@ const NavBarTop = () => {
     const [user, loading, error] = useAuthState(auth);
     const { handleLogout } = useFirebase()
     const [showUserProfile, setShowUserPorfile] = useState(false)
-console.log(user);
     return (
         <div>
             <nav className="w-10/12 mx-auto border-gray-200 px-2 py-2 sm:px-4 rounded dark:bg-gray-800">
