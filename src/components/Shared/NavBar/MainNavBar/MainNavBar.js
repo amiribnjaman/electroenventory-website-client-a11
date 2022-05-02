@@ -21,7 +21,7 @@ const MainNavBar = () => {
                                     <Link to="/" className="block py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Manage Items</Link>
                                 </li>
                                 <li>
-                                    <Link to="/" className="block py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Add Item</Link>
+                                    <Link to="/additem" className="block py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Add Item</Link>
                                 </li>
                                 <li>
                                     <Link to="/" className="block py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Blogs</Link>

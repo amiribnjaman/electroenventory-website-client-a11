@@ -43,16 +43,17 @@ const InventorySpecificItemDetails = () => {
     // Handle Restock form
     const handleRestockForm = e => {
         e.preventDefault()
-        console.log(reStock);
-        const newQuantity = parseInt(reStock) + parseInt(quantity)
-        fetch(`http://localhost:4000/inventory/${id}/${newQuantity}`, {
-            method: 'PUT'
-        })
-            .then(data => data.json())
-            .then(res => {
-                setIsupdate(!isUpdate)
-                e.target.reset()
+        if (reStock > 0) {
+            const newQuantity = parseInt(reStock) + parseInt(quantity)
+            fetch(`http://localhost:4000/inventory/${id}/${newQuantity}`, {
+                method: 'PUT'
             })
+                .then(data => data.json())
+                .then(res => {
+                    setIsupdate(!isUpdate)
+                    e.target.reset()
+                })
+        }
 
     }
 

@@ -7,6 +7,7 @@ import Signup from './components/Auth/Signup/Signup';
 import Footer from './components/Shared/Footer/Footer';
 import InventorySpecificItemDetails from './components/Home/InventorySpecificItemDetails/InventorySpecificItemDetails';
 import ProtectedRoute from './components/Auth/ProtectedRoute/ProtectedRoute';
+import AddItem from './components/AddItem/AddItem';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <ProtectedRoute>
             <InventorySpecificItemDetails />
           </ProtectedRoute>} />
+        <Route path='/additem' element={<AddItem />} />
       </Routes>
       <Footer />
     </div>
