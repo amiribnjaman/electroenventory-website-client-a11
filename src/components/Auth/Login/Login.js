@@ -81,10 +81,10 @@ const Login = () => {
 
     //  Custom login error message
     useEffect(() => {
-        if (loginError?.code === 'auth/user-not-found') {
+        if (loginError) {
             setCustomLoginError(<p className='text-[13px] text-white my-3 shadow bg-blue-600 rounded-full text-center font-semibold'>Email or password is Invalid. Please try again.</p>)
         }
-    }, [loginError?.code])
+    }, [loginError])
 
 
     return (
@@ -103,8 +103,8 @@ const Login = () => {
                                 <img className='w-full h-full rounded-full' src={UserVector} alt="" />
                             </div>
                             {
-                                error || loginError ?
-                                    <p className='text-[13px] text-white my-2 shadow bg-blue-600 rounded-full text-center font-semibold'>{error || loginError ? 'Something wrong. Please try again!' : ''}</p> : ''
+                                error ?
+                                    <p className='text-[13px] text-white my-2 shadow bg-blue-600 rounded-full text-center font-semibold'>{error ? 'Something wrong. Please check your connection!' : ''}</p> : ''
                             }
                             {customLoginError && customLoginError}
                             <div class="mb-4 mt-1">

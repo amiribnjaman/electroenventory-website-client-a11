@@ -13,7 +13,7 @@ const InventoryItems = () => {
                 setInventoryItems(data)
                 setSpinner(false)
             })
-    }, [])
+    }, [inventoryItems])
 
     return (
         <div className='mt-6 mb-16 w-10/12 mx-auto'>
