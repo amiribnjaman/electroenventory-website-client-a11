@@ -4,7 +4,7 @@ import './Login.css';
 import UserVector from '../../../Assets/Img/user.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash, faLeftLong } from '@fortawesome/free-solid-svg-icons';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import GoogleLogo from '../../../Assets/Img/Glogo.png'
 import useFirebase from '../../hooks/useFirebase/useFirebase';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -13,6 +13,7 @@ import auth from '../../../firebase.init';
 
 const Login = () => {
     const navigate = useNavigate()
+    const location = useLocation()
     const { handleSingninWithGoogle, error } = useFirebase()
     const [passwordShow, setPasswordShow] = useState(false)
     const [
@@ -72,10 +73,13 @@ const Login = () => {
         }
     }
 
+    // If user logged in then he/she will be redirected
+    let from = location.state?.from?.pathname || "/";
     if (user) {
-        navigate('/')
+        navigate(from, { replace: true });
     }
 
+    //  Custom login error message
     useEffect(() => {
         if (loginError?.code === 'auth/user-not-found') {
             setCustomLoginError(<p className='text-[13px] text-white my-3 shadow bg-blue-600 rounded-full text-center font-semibold'>Email or password is Invalid. Please try again.</p>)

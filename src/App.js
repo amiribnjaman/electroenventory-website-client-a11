@@ -6,6 +6,7 @@ import NavBar from './components/Shared/NavBar/NavBar'
 import Signup from './components/Auth/Signup/Signup';
 import Footer from './components/Shared/Footer/Footer';
 import InventorySpecificItemDetails from './components/Home/InventorySpecificItemDetails/InventorySpecificItemDetails';
+import ProtectedRoute from './components/Auth/ProtectedRoute/ProtectedRoute';
 
 function App() {
   return (
@@ -16,7 +17,10 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-        <Route path='/inventory/:id' element={<InventorySpecificItemDetails />} />
+        <Route path='/inventory/:id' element={
+          <ProtectedRoute>
+            <InventorySpecificItemDetails />
+          </ProtectedRoute>} />
       </Routes>
       <Footer />
     </div>
