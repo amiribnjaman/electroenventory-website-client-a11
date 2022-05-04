@@ -1,7 +1,12 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../../../firebase.init';
 
 const MainNavBar = () => {
+    const [user, loading, error] = useAuthState(auth);
+
+
     return (
         <div className='bg-[#FFC21F] py-3 mt-4'>
             <nav className="w-10/12 mx-auto border-gray-200 px-2 py-4 sm:px-4 rounded">
@@ -17,12 +22,18 @@ const MainNavBar = () => {
                                 <li>
                                     <Link to="/" className="block py-2 pr-4 pl-3 text-[#041E42]  rounded md:bg-transparent md:p-0 dark:text-white" aria-current="page">Home</Link>
                                 </li>
-                                {/* <li>
-                                    <Link to="/manageInventories" className="block py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Manage Inventories</Link>
-                                </li> */}
-                                <li>
-                                    <Link to="/addinventory" className="block py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Add Inventory</Link>
-                                </li>
+                                {user?.email ?
+                                    <>
+                                        <li>
+                                            <Link to="/manageInventories" className="block py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Manage Inventories</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/addinventory" className="block py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Add Inventory</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/myitems" className="block py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">My Items</Link>
+                                        </li>
+                                    </> : ''}
                                 <li>
                                     <Link to="/" className="block py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Blogs</Link>
                                 </li>

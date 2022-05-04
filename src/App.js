@@ -10,6 +10,7 @@ import ProtectedRoute from './components/Auth/ProtectedRoute/ProtectedRoute';
 import AddInventory from './components/AddInventory/AddInventory';
 import ManageInventories from './components/ManageInventories/ManageInventories';
 import './App.css';
+import MyItems from './components/MyItems/MyItems';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <ProtectedRoute>
             <InventorySpecificItemDetails />
           </ProtectedRoute>} />
+        <Route path='/myItems' element={<MyItems />}/>
         <Route path='/addinventory' element={<AddInventory />} />
         <Route path='/manageInventories' element={<ManageInventories />} />
       </Routes>

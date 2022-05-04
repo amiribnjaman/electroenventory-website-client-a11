@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const InventoryCard = ({ inventoryItem }) => {
-    console.log(inventoryItem);
     const { _id, name, description, image, price, quantity, spplier_name } = inventoryItem
 
     return (
