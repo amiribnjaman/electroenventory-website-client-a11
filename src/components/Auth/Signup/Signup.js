@@ -73,7 +73,7 @@ const Signup = () => {
         if (password.length >= 8) {
             setUserPassword({ password: password })
         } else {
-            setUserPassword({ error: <p className='text-[13px] text-white py-1 mb-1 shadow pl-3 bg-blue-600 rounded-full  font-semibold'>Password is too short</p> })
+            setUserPassword({ error: <p className='text-[13px] text-white py-1 mb-1 shadow pl-3 bg-blue-600 rounded-full  font-semibold'>Password should longer or equal 8 characters.</p> })
         }
     }
 
@@ -128,13 +128,13 @@ const Signup = () => {
 
     return (
         <div className='shadow-xl shadow-[rgb(132,179,223)] mt-14 mb-10 w-10/12 mx-auto md:flex'>
-            <div className='login-vector w-1/2 relative'>
+            <div className='login-vector md:w-1/2 relative'>
                 <button className='absolute top-0 left-0 py-1 px-2 text-[#0070DC]' onClick={handleGoBack}>
                     <FontAwesomeIcon icon={faLeftLong} /> <span className=''>Back</span>
                 </button>
                 <img src={SignupVector} alt='' />
             </div>
-            <div className='w-1/2 pt-8 pb-14 bg-[#0070DC]'>
+            <div className='md:w-1/2 pt-8 pb-14 bg-[#0070DC]'>
                 <div className='w-9/12 mx-auto '>
                     <form onSubmit={handleSignupForm}>
                         <div className='user-vector w-[70px] h-[70px] mx-auto mb-3'>
@@ -165,7 +165,7 @@ const Signup = () => {
                                 onClick={() => setShowPassword(!showPassword)}
                                 className='absolute top-2 right-5 cursor-pointer text-slate-400'>
                                 {
-                                    !showPassword ? <FontAwesomeIcon icon={faEye} title='Show password' /> : <FontAwesomeIcon icon={faEyeSlash} title='Hide password' />
+                                    !showPassword ? <FontAwesomeIcon icon={faEyeSlash} title='Show password' /> : <FontAwesomeIcon icon={faEye} title='Hide password' />
                                 }
                             </div>
 
@@ -181,7 +181,7 @@ const Signup = () => {
                                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                                 className='absolute top-2 right-5 cursor-pointer text-slate-400'>
                                 {
-                                    !showConfirmPassword ? <FontAwesomeIcon icon={faEye} title='Show password' /> : <FontAwesomeIcon icon={faEyeSlash} title='Hide password' />
+                                    !showConfirmPassword ? <FontAwesomeIcon icon={faEyeSlash} title='Show password' /> : <FontAwesomeIcon icon={faEye} title='Hide password' />
                                 }
                             </div>
                             {userConfirmPassword?.error && userConfirmPassword?.error}
@@ -201,7 +201,7 @@ const Signup = () => {
                     </div>
                     <div
                         onClick={handleSingninWithGoogle}
-                        className='bg-white cursor-pointer flex items-center py-1 shadow-md shadow-blue-400 justify-around w-11/12 px-10 mx-auto rounded-full'>
+                        className='bg-white cursor-pointer flex items-center py-1 shadow-md shadow-blue-400 justify-around w-11/12 md:px-10 mx-auto rounded-full'>
                         <img width='35px' src={GoogleLogo} alt="" /> <span className='text-slate-800 font-semibold'>Sign in with Google</span>
                     </div>
                 </div>

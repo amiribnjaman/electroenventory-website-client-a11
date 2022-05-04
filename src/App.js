@@ -7,8 +7,8 @@ import Signup from './components/Auth/Signup/Signup';
 import Footer from './components/Shared/Footer/Footer';
 import InventorySpecificItemDetails from './components/Home/InventorySpecificItemDetails/InventorySpecificItemDetails';
 import ProtectedRoute from './components/Auth/ProtectedRoute/ProtectedRoute';
-import AddItem from './components/AddItem/AddItem';
-import ManageItems from './components/ManageItems/ManageItems';
+import AddInventory from './components/AddInventory/AddInventory';
+import ManageInventories from './components/ManageInventories/ManageInventories';
 import './App.css';
 
 function App() {
@@ -24,8 +24,8 @@ function App() {
           <ProtectedRoute>
             <InventorySpecificItemDetails />
           </ProtectedRoute>} />
-        <Route path='/additem' element={<AddItem />} />
-        <Route path='/manageitems' element={<ManageItems />} />
+        <Route path='/addinventory' element={<AddInventory />} />
+        <Route path='/manageInventories' element={<ManageInventories />} />
       </Routes>
       <Footer />
     </div>

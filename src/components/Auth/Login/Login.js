@@ -22,9 +22,7 @@ const Login = () => {
         loading,
         loginError,
     ] = useSignInWithEmailAndPassword(auth);
-
     const [customLoginError, setCustomLoginError] = useState('')
-
     const [userEmail, setuserEmail] = useState({
         email: '',
         error: ''
@@ -33,13 +31,14 @@ const Login = () => {
         password: '',
         error: ''
     })
-
     const [requiredErrors, setRequiredErrors] = useState('')
+
 
     // Handle go back to home
     const handleGoBack = () => {
         navigate('/')
     }
+
 
     // handle login email onchange
     const handleUserEmailBlur = e => {
@@ -52,6 +51,7 @@ const Login = () => {
 
     }
 
+
     // handle login user password
     const handleUserPasswordBlur = e => {
         const password = e.target.value
@@ -61,6 +61,7 @@ const Login = () => {
             setuserPassword({ error: <p className='text-[13px] text-white shadow bg-blue-600 rounded-full pl-3 mt-1 font-semibold'>Please provide your password.</p> })
         }
     }
+
 
     // Handle login form
     const handleLoginForm = e => {
@@ -76,6 +77,18 @@ const Login = () => {
     // If user logged in then he/she will be redirected
     let from = location.state?.from?.pathname || "/";
     if (user) {
+        // console.log(user.email);
+        // // send user email for jwt verification
+        // fetch('http://localhost:4000/login', {
+        //     method: 'POST',
+        //     body: JSON.stringify({email: user.email}),
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        // })
+        // .then(res => res.json())
+        // .then(data => console.log(data))
+        
         navigate(from, { replace: true });
     }
 
@@ -90,13 +103,13 @@ const Login = () => {
     return (
         <>
             <div className='shadow-xl shadow-[rgb(132,179,223)] mt-14 mb-10 w-10/12 mx-auto md:flex'>
-                <div className='login-vector w-1/2 relative'>
+                <div className='login-vector md:w-1/2 relative'>
                     <button className='absolute top-0 left-0 py-1 px-2 text-[#0070DC]' onClick={handleGoBack}>
                         <FontAwesomeIcon icon={faLeftLong} /> <span className=''>Back</span>
                     </button>
                     <img src={LoginVector} alt='' />
                 </div>
-                <div className='w-1/2 pt-16 bg-[#0070DC]'>
+                <div className='md:w-1/2 md:pt-16 py-10 bg-[#0070DC]'>
                     <div className='w-9/12 mx-auto '>
                         <form className='mt-4' onSubmit={handleLoginForm}>
                             <div className='user-vector w-[70px] h-[70px] mx-auto mb-2'>
@@ -120,8 +133,7 @@ const Login = () => {
 
                                 {/* Show and hide password */}
                                 <div onClick={() => setPasswordShow(!passwordShow)} className='absolute top-2 right-5 cursor-pointer text-slate-400'>
-                                    {!passwordShow ? <FontAwesomeIcon title='Show password' icon={faEye} />
-                                        : <FontAwesomeIcon title='Hide password' icon={faEyeSlash} />
+                                    {!passwordShow ? <FontAwesomeIcon icon={faEyeSlash} title='Show password' /> : <FontAwesomeIcon icon={faEye} title='Hide password' />
                                     }
                                 </div>
                                 {userPassword.error && userPassword.error}
@@ -142,7 +154,7 @@ const Login = () => {
 
                         <div
                             onClick={handleSingninWithGoogle}
-                            className='bg-white flex items-center py-1 cursor-pointer shadow-md shadow-blue-400 justify-around w-11/12 px-10 mx-auto rounded-full'>
+                            className='bg-white flex items-center py-1 cursor-pointer shadow-md shadow-blue-400 justify-around w-11/12 md:px-10 mx-auto rounded-full'>
                             <img width='35px' src={GoogleLogo} alt="" /> <span className='text-slate-800 font-semibold'>Sign in with Google</span>
                         </div>
                     </div>

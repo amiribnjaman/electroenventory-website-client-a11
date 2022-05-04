@@ -2,7 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
-const AddItem = () => {
+const AddInventory = () => {
     const [user, loading, error] = useAuthState(auth);
 
     const handleAddItemForm = e => {
@@ -33,7 +33,7 @@ const AddItem = () => {
 
     return (
         <div className='w-10/12 mx-auto my-10'>
-            <div className='w-1/2 mx-auto'>
+            <div className='md:w-1/2 mx-auto'>
                 <h2 className='text-md font-semibold mb-2'>Add a new Item</h2>
                 <hr className='mb-4' />
                 <form onSubmit={handleAddItemForm}>
@@ -70,4 +70,4 @@ const AddItem = () => {
     );
 };
 
-export default AddItem;
+export default AddInventory;
