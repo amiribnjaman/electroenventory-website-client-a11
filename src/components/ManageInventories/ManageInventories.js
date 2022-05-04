@@ -1,3 +1,5 @@
+import { faDeleteLeft, faEdit, faTrash, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,8 +9,6 @@ const ManageInventories = () => {
     const navigate = useNavigate()
     const [spinner, setSpinner] = useState(true)
     // const [netErr, setNetErr] = useState('')
-
-    console.log(items);
 
     useEffect(() => {
         fetch('http://localhost:4000/allInventory')
@@ -29,12 +29,25 @@ const ManageInventories = () => {
     //     }
     // }, 10000);
 
-    const handleNavigate = (id) => {
+    // handle navigate to specific inventory item
+    const handleUpdateInventory = (id) => {
         navigate(`/inventory/${id}`)
     }
+
+    // handle deleting a specific item from database
+    const handleDeleteInventory = (id) => {
+        fetch(`http://localhost:4000/inventory/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
+
+
+
     return (
         <div className='w-10/12 mx-auto my-14'>
-            <h2 className='text-lg font-semibold mb-2'>Manage Items</h2>
+            <h2 className='text-lg font-semibold mb-2'>Manage Inventories</h2>
             <hr className='mb-7' />
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -68,7 +81,7 @@ const ManageInventories = () => {
                     </thead>
                     <tbody>
                         {
-                            items.map(item => <tr onClick={() => handleNavigate(item._id)} class="border-b cursor-pointer  dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
+                            items.map(item => <tr class="border-b  dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                     {item.name}
                                 </th>
@@ -87,8 +100,17 @@ const ManageInventories = () => {
                                 <td class="px-6 py-3">
                                     <img width={35} src={item.image} alt="" />
                                 </td>
-                                <td class="px-6 py-4 text-right">
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                                <td class="px-6 py-4 text-left">
+                                    <button
+                                        onClick={() => handleUpdateInventory(item._id)}
+                                        class="font-medium text-[18px] text-blue-600 inline-block">
+                                        <FontAwesomeIcon icon={faEdit} />
+                                    </button>
+                                    <button
+                                        onClick={() => handleDeleteInventory(item._id)}
+                                        class="font-medium text-[18px] text-red-500 pl-3 inline-block">
+                                        <FontAwesomeIcon icon={faTrashAlt} />
+                                    </button>
                                 </td>
                             </tr>)
                         }

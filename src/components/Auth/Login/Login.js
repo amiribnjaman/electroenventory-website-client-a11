@@ -102,8 +102,8 @@ const Login = () => {
 
     return (
         <>
-            <div className='shadow-xl shadow-[rgb(132,179,223)] mt-14 mb-10 w-10/12 mx-auto md:flex'>
-                <div className='login-vector md:w-1/2 relative'>
+            <div className='shadow-xl shadow-[rgb(132,179,223)] md:mt-14 mt-20 mb-10 w-10/12 mx-auto md:flex'>
+                <div className='login-vector hidden md:block md:w-1/2 relative'>
                     <button className='absolute top-0 left-0 py-1 px-2 text-[#0070DC]' onClick={handleGoBack}>
                         <FontAwesomeIcon icon={faLeftLong} /> <span className=''>Back</span>
                     </button>

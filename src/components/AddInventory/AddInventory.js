@@ -34,7 +34,7 @@ const AddInventory = () => {
     return (
         <div className='w-10/12 mx-auto my-10'>
             <div className='md:w-1/2 mx-auto'>
-                <h2 className='text-md font-semibold mb-2'>Add a new Item</h2>
+                <h2 className='text-md font-semibold mb-2'>Add a new Inventory</h2>
                 <hr className='mb-4' />
                 <form onSubmit={handleAddItemForm}>
                     <div class="relative z-0 w-full mb-6 group">
