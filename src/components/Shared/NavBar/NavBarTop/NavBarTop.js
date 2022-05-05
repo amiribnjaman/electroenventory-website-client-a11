@@ -45,7 +45,7 @@ const NavBarTop = () => {
                                             {/* User profile and logout button */}
                                             <div style={{ marginLeft: '-8px' }} className={`mt-2 w-24  ${showUserProfile ? 'block' : 'hidden'}`}>
                                                 <ul className=' h-18 mr-4 rounded mx-auto shadow-lg bg-white'>
-                                                    <li className='hover:bg-slate-100 py-[2px]'> <Link to='' >Profile</Link></li>
+                                                    <li className='hover:bg-slate-100 py-[2px]'> <Link to='/profile' >Profile</Link></li>
                                                     <li className='hover:bg-slate-100 py-[2px] pb-[5px]'><button onClick={handleLogout}>Logout</button></li>
                                                 </ul>
                                             </div>
