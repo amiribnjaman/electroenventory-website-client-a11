@@ -86,7 +86,6 @@ const Signup = () => {
     // Handle sign up
     const handleSignupForm = async e => {
         e.preventDefault()
-
         try {
             if (userName.name && userEmail.email && userPassword.password && userConfirmPassword.confirmPassword) {
                 await createUserWithEmailAndPassword(userEmail.email, userPassword.password)
@@ -101,9 +100,13 @@ const Signup = () => {
                     // ...
                 })
                 setErrors('')
+
+                e.target.reset()
             } else {
                 setErrors(<p className='text-[13px] text-white shadow mb-2 bg-blue-600 rounded-full text-center font-semibold'>Please fill up all required fields.</p>)
+                e.target.reset()
             }
+
         }
         catch (error) {
             console.log(error);
@@ -137,89 +140,98 @@ const Signup = () => {
             })
     }
 
-    
+
 
     return (
-        <div className='shadow-xl shadow-[rgb(132,179,223)] mt-14 mb-10 w-10/12 mx-auto md:flex'>
-            <div className='login-vector hidden md:block md:w-1/2 relative'>
-                <button className='absolute top-0 left-0 py-1 px-2 text-[#0070DC]' onClick={handleGoBack}>
+        <>
+            {/* go back button for small devices  */}
+            <div className='absolute z-50 ml-14'>
+                <button className=' block md:hidden  py-1 px-2 text-white' onClick={handleGoBack}>
                     <FontAwesomeIcon icon={faLeftLong} /> <span className=''>Back</span>
                 </button>
-                <img src={SignupVector} alt='' />
             </div>
-            <div className='md:w-1/2 pt-8 pb-14 bg-[#0070DC]'>
-                <div className='w-9/12 mx-auto '>
-                    <form onSubmit={handleSignupForm}>
-                        <div className='user-vector w-[70px] h-[70px] mx-auto mb-3'>
-                            <img className='w-full h-full rounded-full' src={UserVector} alt="" />
-                        </div>
-                        {error ?
-                            <p className='text-sm text-white py-1 mb-1 shadow bg-blue-600 rounded-full text-center font-semibold'>{error && 'Something wrong. Please try agin!'}
-                            </p> : ''}
-                        {customErr && customErr}
-                        <div class="mb-3">
-                            <input
-                                onBlur={handleNameBlur} type="text" id="text" name='name' class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Your Name*" required="" />
-                            {userName?.error && userName?.error}
-                        </div>
-                        <div class="mb-3">
-                            <input
-                                onBlur={handleEmailBlur}
-                                type="email" id="email" name='email' class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Your Email*" required="" />
-                            {userEmail?.error && userEmail?.error}
-                        </div>
-                        <div class="mb-3 relative">
-                            <input
-                                onBlur={handlePasswordBlur}
-                                type={!showPassword ? 'password' : 'text'} name='password' id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder='Password*' required="" />
 
-                            {/* Show and hide password */}
-                            <div
-                                onClick={() => setShowPassword(!showPassword)}
-                                className='absolute top-2 right-5 cursor-pointer text-slate-400'>
-                                {
-                                    !showPassword ? <FontAwesomeIcon icon={faEyeSlash} title='Show password' /> : <FontAwesomeIcon icon={faEye} title='Hide password' />
-                                }
-                            </div>
-
-                            {userPassword?.error && userPassword?.error}
-                        </div>
-                        <div class="mb-5 relative">
-                            <input
-                                onBlur={handleConfirmPasswordBlur}
-                                type={!showConfirmPassword ? 'password' : 'text'} name='confirmPassword' id="repeat-password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required="" placeholder='Confirm Password*' />
-
-                            {/* Show and hide confirm password */}
-                            <div
-                                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                                className='absolute top-2 right-5 cursor-pointer text-slate-400'>
-                                {
-                                    !showConfirmPassword ? <FontAwesomeIcon icon={faEyeSlash} title='Show password' /> : <FontAwesomeIcon icon={faEye} title='Hide password' />
-                                }
-                            </div>
-                            {userConfirmPassword?.error && userConfirmPassword?.error}
-                        </div>
-                        {erros && erros}
-                        <div className=''>
-                            <input type="submit" className={`text-slate-800 mx-auto block cursor-pointer hover:bg-[#f8b705] focus:ring-4 bg-[#FFC21F] focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm w-full sm:w-auto px-16 py-2.5 text-center`} value='Sign up' />
-                        </div>
-                    </form>
-
-                    <h6 className='text-center mt-3 text-white font-semibold text-[14px]'>Already Registered? <Link to='/login' className='underline text-[#FFC21F]'>Login</Link></h6>
-
-                    <div className='flex my-2 items-center justify-center mx-auto w-11/12'>
-                        <div className='w-1/3 mt-1 h-[1px] bg-white text-center'></div>
-                        <div className='px-2 text-white'>or</div>
-                        <div className='w-1/3 mt-1 h-[1px] bg-white'></div>
-                    </div>
-                    <div
-                        onClick={handleSingninWithGoogle}
-                        className='bg-white cursor-pointer flex items-center py-1 shadow-md shadow-blue-400 justify-around w-11/12 md:px-10 mx-auto rounded-full'>
-                        <img width='35px' src={GoogleLogo} alt="" /> <span className='text-slate-800 font-semibold'>Sign in with Google</span>
-                    </div>
+            <div className='shadow-xl shadow-[rgb(132,179,223)] mt-14 mb-10 w-10/12 mx-auto md:flex'>
+                <div className='login-vector hidden md:block md:w-1/2 relative'>
+                    <button className='absolute top-0 left-0 py-1 px-2 text-[#0070DC]' onClick={handleGoBack}>
+                        <FontAwesomeIcon icon={faLeftLong} /> <span className=''>Back</span>
+                    </button>
+                    <img src={SignupVector} alt='' />
                 </div>
-            </div >
-        </div >
+                <div className='md:w-1/2 pt-8 pb-14 bg-[#0070DC]'>
+                    <div className='w-9/12 mx-auto '>
+                        <form onSubmit={handleSignupForm}>
+                            <div className='user-vector w-[70px] h-[70px] mx-auto mb-3'>
+                                <img className='w-full h-full rounded-full' src={UserVector} alt="" />
+                            </div>
+                            {error ?
+                                <p className='text-sm text-white py-1 mb-1 shadow bg-blue-600 rounded-full text-center font-semibold'>{error && 'Something wrong. Please try agin!'}
+                                </p> : ''}
+                            {customErr && customErr}
+                            <div class="mb-3">
+                                <input
+                                    onBlur={handleNameBlur} type="text" id="text" name='name' class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Your Name*" required="" />
+                                {userName?.error && userName?.error}
+                            </div>
+                            <div class="mb-3">
+                                <input
+                                    onBlur={handleEmailBlur}
+                                    type="email" id="email" name='email' class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Your Email*" required="" />
+                                {userEmail?.error && userEmail?.error}
+                            </div>
+                            <div class="mb-3 relative">
+                                <input
+                                    onBlur={handlePasswordBlur}
+                                    type={!showPassword ? 'password' : 'text'} name='password' id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder='Password*' required="" />
+
+                                {/* Show and hide password */}
+                                <div
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className='absolute top-2 right-5 cursor-pointer text-slate-400'>
+                                    {
+                                        !showPassword ? <FontAwesomeIcon icon={faEyeSlash} title='Show password' /> : <FontAwesomeIcon icon={faEye} title='Hide password' />
+                                    }
+                                </div>
+
+                                {userPassword?.error && userPassword?.error}
+                            </div>
+                            <div class="mb-5 relative">
+                                <input
+                                    onBlur={handleConfirmPasswordBlur}
+                                    type={!showConfirmPassword ? 'password' : 'text'} name='confirmPassword' id="repeat-password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required="" placeholder='Confirm Password*' />
+
+                                {/* Show and hide confirm password */}
+                                <div
+                                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                    className='absolute top-2 right-5 cursor-pointer text-slate-400'>
+                                    {
+                                        !showConfirmPassword ? <FontAwesomeIcon icon={faEyeSlash} title='Show password' /> : <FontAwesomeIcon icon={faEye} title='Hide password' />
+                                    }
+                                </div>
+                                {userConfirmPassword?.error && userConfirmPassword?.error}
+                            </div>
+                            {erros && erros}
+                            <div className=''>
+                                <input type="submit" className={`text-slate-800 mx-auto block cursor-pointer hover:bg-[#f8b705] focus:ring-4 bg-[#FFC21F] focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm w-full sm:w-auto px-16 py-2.5 text-center`} value='Sign up' />
+                            </div>
+                        </form>
+
+                        <h6 className='text-center mt-3 text-white font-semibold text-[14px]'>Already Registered? <Link to='/login' className='underline text-[#FFC21F]'>Login</Link></h6>
+
+                        <div className='flex my-2 items-center justify-center mx-auto w-11/12'>
+                            <div className='w-1/3 mt-1 h-[1px] bg-white text-center'></div>
+                            <div className='px-2 text-white'>or</div>
+                            <div className='w-1/3 mt-1 h-[1px] bg-white'></div>
+                        </div>
+                        <div
+                            onClick={handleSingninWithGoogle}
+                            className='bg-white cursor-pointer flex items-center py-1 shadow-md shadow-blue-400 justify-around w-11/12 md:px-10 mx-auto rounded-full'>
+                            <img width='35px' src={GoogleLogo} alt="" /> <span className='text-slate-800 font-semibold'>Sign in with Google</span>
+                        </div>
+                    </div>
+                </div >
+            </div>
+        </>
     );
 };
 

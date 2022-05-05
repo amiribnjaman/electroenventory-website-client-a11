@@ -6,7 +6,7 @@ const InventoryCard = ({ inventoryItem }) => {
 
     return (
         <div>
-            <div style={{ height: '630px' }} class=" p-3 max-w-sm bg-white rounded-lg hover:border hover:border-slate-100 hover:shadow-md">
+            <div style={{ height: '630px' }} class="mx-auto p-3 max-w-sm bg-white rounded-lg hover:border hover:border-slate-100 hover:shadow-md">
                 <img style={{ width: '100%', height: '300px' }} src={image} alt="" />
                 <div className='md:px-1'>
                     <div className='mb-2 ml-1 mt-2'>

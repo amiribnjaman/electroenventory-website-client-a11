@@ -122,7 +122,7 @@ const ManageInventories = () => {
                                     </button>
                                     <button
                                         onClick={() => handleDeleteItemPopup(item._id)}
-                                        class="font-medium text-[18px] text-red-500 pl-3 inline-block">
+                                        class="font-medium text-[18px] text-red-500 lg:pl-3 pl-1 inline-block">
                                         <FontAwesomeIcon icon={faTrashAlt} />
                                     </button>
 

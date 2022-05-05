@@ -33,7 +33,7 @@ const InventoryItems = () => {
                 </svg>
             </div> : ''}
             {/* {netErr && netErr} */}
-            <div className='grid grid-cols-3 gap-x-8 gap-y-14 mt-6'>
+            <div className='grid md:grid-cols-3 sm:grid-cols-2 gap-x-8 sm:gap-y-14 mt-6'>
                 {
                     inventoryItems.map(inventoryItem => <InventoryCard
                         key={inventoryItem.id}
@@ -42,7 +42,7 @@ const InventoryItems = () => {
                 }
             </div>
 
-            {inventoryItems.length > 0 ? <div className='w-1/4 mx-auto text-center mt-10'>
+            {inventoryItems.length > 0 ? <div className='md:w-1/4 mx-auto text-center mt-10'>
                 <button
                     onClick={manageInvetoriesBtn}
                     type="button" class="text-white bg-[#0070DC] hover:bg-[#097be5] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">Manage Inventories</button>

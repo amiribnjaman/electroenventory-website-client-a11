@@ -82,10 +82,10 @@ const MyItems = () => {
                                         <th scope="row" class="px-4 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                             {++slNumber}
                                         </th>
-                                        <th scope="row" class="px-6 w-1/6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                        <th scope="row" class="pr-6 pl-1 w-1/6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                             {item.name}
                                         </th>
-                                        <td class="px-6 py-4 w-2/6">
+                                        <td class="pl-1 py-4 overflow-y-auto w-2/6">
                                             {item.description}
                                         </td>
                                         <td class="px-6 py-4 w-1/6">
@@ -97,7 +97,7 @@ const MyItems = () => {
                                         <td class="px-6 py-4 w-1/6">
                                             {item.spplier_name}
                                         </td>
-                                        <td class="px-6 py-4 w-1/6">
+                                        <td class="pl-2 pr-1 py-4 w-1/6">
                                             <img width={50} src={item.image} alt="" />
                                         </td>
                                         <td class="px-6 py-4 text-left w-1/6">
@@ -108,7 +108,7 @@ const MyItems = () => {
                                             </button>
                                             <button type="button"
                                                 onClick={() => handleDeleteItemPopup(item._id)}
-                                                class="font-medium text-[18px] text-red-500 pl-3 inline-block">
+                                                class="font-medium text-[18px] text-red-500 md:pl-1 lg:pl-3 inline-block">
                                                 <FontAwesomeIcon icon={faTrashAlt} />
                                             </button>
                                         </td>

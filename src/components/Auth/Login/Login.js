@@ -72,6 +72,8 @@ const Login = () => {
         } else {
             setRequiredErrors(<p className='text-[13px] text-white my-3 shadow bg-blue-600 rounded-full text-center font-semibold'>Please provide valid Email and password.</p>)
         }
+
+        e.target.reset()
     }
 
     // If user logged in then he/she will be redirected
@@ -102,14 +104,23 @@ const Login = () => {
 
     return (
         <>
+
+            {/* go back button for small devices  */}
+            <div className='absolute z-50 ml-14'>
+                <button className=' block md:hidden  py-1 px-2 text-white' onClick={handleGoBack}>
+                    <FontAwesomeIcon icon={faLeftLong} /> <span className=''>Back</span>
+                </button>
+            </div>
+
+
             <div className='shadow-xl shadow-[rgb(132,179,223)] md:mt-14 mt-20 mb-10 w-10/12 mx-auto md:flex'>
-                <div className='login-vector hidden md:block md:w-1/2 relative'>
-                    <button className='absolute top-0 left-0 py-1 px-2 text-[#0070DC]' onClick={handleGoBack}>
+                <div className='login-vector hidden md:block md:w-1/2 md:relative'>
+                    <button className='md:absolute relative top-0 left-0 py-1 px-2 text-[#0070DC]' onClick={handleGoBack}>
                         <FontAwesomeIcon icon={faLeftLong} /> <span className=''>Back</span>
                     </button>
                     <img src={LoginVector} alt='' />
                 </div>
-                <div className='md:w-1/2 md:pt-16 py-10 bg-[#0070DC]'>
+                <div className='md:w-1/2 md:pt-16 py-10 bg-[#0070DC] relative'>
                     <div className='w-9/12 mx-auto '>
                         <form className='mt-4' onSubmit={handleLoginForm}>
                             <div className='user-vector w-[70px] h-[70px] mx-auto mb-2'>
