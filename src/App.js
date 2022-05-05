@@ -12,6 +12,7 @@ import ManageInventories from './components/ManageInventories/ManageInventories'
 import './App.css';
 import MyItems from './components/MyItems/MyItems';
 import NotFound from './components/NotFound/NotFound'
+import ForgotPassword from './components/Auth/ForgotPassword/ForgotPassword';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
+        <Route path='/forgotPassword' element={<ForgotPassword />} />
         <Route path='/inventory/:id' element={
           <ProtectedRoute>
             <InventorySpecificItemDetails />

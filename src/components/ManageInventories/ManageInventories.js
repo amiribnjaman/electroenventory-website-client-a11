@@ -12,6 +12,7 @@ const ManageInventories = () => {
     const [togglePopup, setTogglePopUp] = useState(false)
     const [reload, setReload] = useState(false)
 
+    // All inventories load
     useEffect(() => {
         fetch('http://localhost:4000/allInventory')
             .then(res => res.json())

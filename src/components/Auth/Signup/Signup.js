@@ -1,7 +1,7 @@
 import { faLeftLong, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SignupVector from '../../../Assets/Img/signup.jpg'
 import UserVector from '../../../Assets/Img/user1.png'
 import GoogleLogo from '../../../Assets/Img/Glogo.png'
@@ -16,32 +16,28 @@ const Signup = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
     const navigate = useNavigate()
-    const {
-        handleSingninWithGoogle,
-        error } = useFirebase()
-
+    const { handleSingninWithGoogle, error } = useFirebase()
+    const location = useLocation()
     const auth = getAuth();
-
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         signupError,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-
-
     const [updateProfile, updating, profileError] = useUpdateProfile(auth);
 
-    // Handle go back to home
-    const handleGoBack = () => {
-        navigate('/')
-    }
-
+    // Settings user informations and errors into state
     const [userName, setUserName] = useState({ name: '', error: '' })
     const [userEmail, setUserEmail] = useState({ email: '', error: '' })
     const [userPassword, setUserPassword] = useState({ password: '', error: '' })
     const [userConfirmPassword, setUserConfirmPassword] = useState({ confirmPassword: '', error: '' })
     const [erros, setErrors] = useState('')
+
+    // Handle go back to home
+    const handleGoBack = () => {
+        navigate('/')
+    }
 
     // handle user name on change
     const handleNameBlur = e => {
@@ -122,9 +118,26 @@ const Signup = () => {
         }
     }, [signupError?.code, customErr])
 
+
+    // If user signed up then he/she will be redirected
+    let from = location.state?.from?.pathname || "/";
     if (user) {
-        navigate('/')
+        // send user email to server for jwt verification
+        fetch('http://localhost:4000/login', {
+            method: 'POST',
+            body: JSON.stringify({ email: user.user.email }),
+            headers: {
+                'content-type': 'application/json'
+            },
+        })
+            .then(res => res.json())
+            .then(data => {
+                localStorage.setItem("accessToken", data.token)
+                navigate(from, { replace: true });
+            })
     }
+
+    
 
     return (
         <div className='shadow-xl shadow-[rgb(132,179,223)] mt-14 mb-10 w-10/12 mx-auto md:flex'>

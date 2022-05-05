@@ -13,7 +13,7 @@ const NavBar = () => {
             {/* {
                 path.includes('login') ?
                     '' : */}
-            <div className={path.includes('login') || path.includes('signup') ? 'hidden' : 'block'}>
+            <div className={path.includes('login') || path.includes('signup') || path.includes('forgotPassword') ? 'hidden' : 'block'}>
                 <NavBarTop />
                 <MainNavBar />
             </div>

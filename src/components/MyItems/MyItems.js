@@ -15,7 +15,7 @@ const MyItems = () => {
     const [errCode, setErrCode] = useState('')
 
     useEffect(() => {
-        fetch(`http://localhost:4000/myItems/${user?.uid}`, {
+        fetch(`http://localhost:4000/myItems/${user?.email}`, {
             headers: {
                 'authorization': `${localStorage.getItem("accessToken")} ${user.email}`
             }
@@ -26,7 +26,8 @@ const MyItems = () => {
                 setMyItems(data.result)
                 setSpinner(false)
             })
-    }, [user?.uid, reload, user?.email])
+    }, [reload, user?.email])
+    console.log(user?.uid)
 
     // handle item update navigate 
     const handleUpdateItemNavigate = (id) => {
@@ -73,7 +74,7 @@ const MyItems = () => {
             {
                 errCode == 403 ? <p className='text-center font-bold text-md mt-24 mb-28'>
                     <svg class="mx-auto mb-4 w-12 h-12 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    Access Token is invalid</p> : myItems?.length > 0 ? myItems.map(item => <div class="p-4 mb-2 w-full text-center bg-white rounded-lg border shadow-md sm:p-8">
+                    Access Token is invalid.</p> : myItems?.length > 0 ? myItems.map(item => <div class="p-4 mb-2 w-full text-center bg-white rounded-lg border shadow-md sm:p-8">
                         <div class="relative overflow-x-auto sm:rounded-lg">
                             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                 <tbody>

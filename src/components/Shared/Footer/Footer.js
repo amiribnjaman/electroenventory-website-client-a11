@@ -11,7 +11,7 @@ const Footer = () => {
         <>
             {/* {
                 !path.includes('/login') ? */}
-            <footer className={path.includes('login') || path.includes('signup') ? 'hidden' : 'block'}>
+            <footer className={path.includes('login') || path.includes('signup') || path.includes('forgotPassword') ? 'hidden' : 'block'}>
                 <div className="py-10 px-4 bg-[#F7F8F9]">
                     <div className='md:flex md:items-center md:text-center md:justify-between w-10/12 mx-auto'>
                         <h5 className="text-sm text-slate-700 text-center">&copy; {currentYear} <Link to=""> electro<span className='text-[#fc9c20]'>Inventory</span></Link>. All Rights Reserved.

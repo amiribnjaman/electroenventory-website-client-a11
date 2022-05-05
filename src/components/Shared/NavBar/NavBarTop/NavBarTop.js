@@ -39,7 +39,7 @@ const NavBarTop = () => {
                                                 
                                             <FontAwesomeIcon className='w-8 ml-1 text-[17px] text-black' icon={faUserAlt} />
                                             <div>
-                                                <p className='text-[14px]'>{user?.email?.split('@')[0] || 'User'}</p>
+                                                <p className='text-[14px]'>{user?.displayName?.split(' ')[0] || user?.email?.split('@')[0]}</p>
                                             </div>
 
                                             {/* User profile and logout button */}

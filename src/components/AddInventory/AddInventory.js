@@ -14,7 +14,7 @@ const AddInventory = () => {
         const imageUrl = e.target.imageUrl.value
         const spplier_name = e.target.spplier_name.value
 
-        const data = { name: name, image: imageUrl, description: description, price: price, quantity: quantity, spplier_name: spplier_name, admin_id: user?.uid }
+        const data = { name: name, image: imageUrl, description: description, price: price, quantity: quantity, spplier_name: spplier_name, admin_email: user?.email }
 
         fetch('http://localhost:4000/inventory', {
             method: 'POST',

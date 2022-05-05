@@ -77,7 +77,6 @@ const Login = () => {
     // If user logged in then he/she will be redirected
     let from = location.state?.from?.pathname || "/";
     if (user) {
-
         // send user email to server for jwt verification
         fetch('http://localhost:4000/login', {
             method: 'POST',
@@ -145,7 +144,10 @@ const Login = () => {
                             </div>
                         </form>
 
-                        <h6 className='text-center my-3 text-white font-semibold text-[14px]'>Haven't account? <Link to='/signup' className='underline text-[#FFC21F]'>Sign up</Link></h6>
+                        <div className='text-center'>
+                            <h6 className='text-center mt-3 text-white font-semibold text-[14px]'>Haven't account? <Link to='/signup' className='underline text-[#FFC21F]'>Sign up</Link></h6>
+                            <Link to='/forgotPassword' className='hover:underline text-white font-semibold text-[14px]'>Forgotten password?</Link>
+                        </div>
 
                         <div className='flex my-2 items-center justify-center mx-auto w-11/12'>
                             <div className='w-1/3 mt-1 h-[1px] bg-white text-center'></div>
