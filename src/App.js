@@ -13,6 +13,8 @@ import './App.css';
 import MyItems from './components/MyItems/MyItems';
 import NotFound from './components/NotFound/NotFound'
 import ForgotPassword from './components/Auth/ForgotPassword/ForgotPassword';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 
 function App() {
   return (
