@@ -77,19 +77,20 @@ const Login = () => {
     // If user logged in then he/she will be redirected
     let from = location.state?.from?.pathname || "/";
     if (user) {
-        // console.log(user.email);
-        // // send user email for jwt verification
-        // fetch('http://localhost:4000/login', {
-        //     method: 'POST',
-        //     body: JSON.stringify({email: user.email}),
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        // })
-        // .then(res => res.json())
-        // .then(data => console.log(data))
-        
-        navigate(from, { replace: true });
+
+        // send user email to server for jwt verification
+        fetch('http://localhost:4000/login', {
+            method: 'POST',
+            body: JSON.stringify({ email: user.user.email }),
+            headers: {
+                'content-type': 'application/json'
+            },
+        })
+            .then(res => res.json())
+            .then(data => {
+                localStorage.setItem("accessToken", data.token)
+                navigate(from, { replace: true });
+            })
     }
 
     //  Custom login error message
