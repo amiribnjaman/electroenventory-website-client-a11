@@ -11,6 +11,7 @@ import AddInventory from './components/AddInventory/AddInventory';
 import ManageInventories from './components/ManageInventories/ManageInventories';
 import './App.css';
 import MyItems from './components/MyItems/MyItems';
+import NotFound from './components/NotFound/NotFound'
 
 function App() {
   return (
@@ -25,9 +26,13 @@ function App() {
           <ProtectedRoute>
             <InventorySpecificItemDetails />
           </ProtectedRoute>} />
-        <Route path='/myItems' element={<MyItems />}/>
+        <Route path='/myItems' element={
+          <ProtectedRoute>
+            <MyItems />
+          </ProtectedRoute>} />
         <Route path='/addinventory' element={<AddInventory />} />
         <Route path='/manageInventories' element={<ManageInventories />} />
+        <Route path='/*' element={<NotFound />} />
       </Routes>
       <Footer />
     </div>
