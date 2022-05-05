@@ -71,7 +71,6 @@ const MyItems = () => {
 
             {/* My items data */}
             {
-
                 errCode == 403 ? <p className='text-center font-bold text-md mt-24 mb-28'>
                     <svg class="mx-auto mb-4 w-12 h-12 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     Access Token is invalid</p> : myItems?.length > 0 ? myItems.map(item => <div class="p-4 mb-2 w-full text-center bg-white rounded-lg border shadow-md sm:p-8">
@@ -144,7 +143,7 @@ const MyItems = () => {
                         </div>
 
                     </div>) : <>
-                    <div className='text-center'>
+                    <div className='text-center my-28'>
                         <h4 className='font-semibold'>You didn't created any item yet.</h4>
                         <button
                             onClick={handleAddItemNavigate}
