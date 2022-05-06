@@ -13,6 +13,7 @@ const MyItems = () => {
     const [reload, setReload] = useState(false)
     const [spinner, setSpinner] = useState(true)
     const [errCode, setErrCode] = useState('')
+    const [selectedItemId, setSelectedItemId] = useState('')
 
     useEffect(() => {
         fetch(`http://localhost:4000/myItems/${user?.email}`, {
@@ -27,7 +28,6 @@ const MyItems = () => {
                 setSpinner(false)
             })
     }, [reload, user?.email])
-    console.log(user?.uid)
 
     // handle item update navigate 
     const handleUpdateItemNavigate = (id) => {
@@ -41,11 +41,13 @@ const MyItems = () => {
 
     // handle delete popup
     const handleDeleteItemPopup = (id) => {
+        setSelectedItemId(id)
         setTogglePopUp(!togglePopup)
     }
 
     // Handle delete item
-    const handleDeleteItem = (id) => {
+    const handleDeleteItem = () => {
+        const id = selectedItemId
         fetch(`http://localhost:4000/inventory/${id}`, {
             method: 'DELETE'
         })
@@ -126,7 +128,7 @@ const MyItems = () => {
                                                         <svg class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                                         <h3 class="mb-5 text-lg font-normal text-gray-500">Are you sure you want to delete this item?</h3>
                                                         <button
-                                                            onClick={() => handleDeleteItem(item._id)}
+                                                            onClick={handleDeleteItem}
                                                             data-modal-toggle="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                                                             Yes, I'm sure
                                                         </button>
