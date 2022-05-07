@@ -105,7 +105,7 @@ const InventorySpecificItemDetails = () => {
                     <div>
                         <form
                             onSubmit={handleRestockForm}
-                            className='md:relative md:border-l mt-8 md:mt-4 md:border-gray-200'>
+                            className='md:relative md:border-l mt-6 md:mt-4 md:border-gray-200'>
                             <div className='ml-5'>
                                 <div className="mb-6">
                                     <h4 className='text-lg font-semibold mb-2'>Restock</h4>
