@@ -59,7 +59,7 @@ const ManageInventories = () => {
             <div className='w-10/12 mx-auto my-14'>
                 <h2 className='text-lg font-semibold mb-2'>Manage Inventories <button
                     onClick={handleAddItemNavigate}
-                    type="button" className="text-white ml-4 bg-[#0070DC] hover:bg-[#097be5] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2">Add New Item</button>
+                    type="button" className="text-white md:ml-4 bg-[#0070DC] hover:bg-[#097be5] focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2">Add New Item</button>
                 </h2>
                 <hr className='mb-7' />
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">

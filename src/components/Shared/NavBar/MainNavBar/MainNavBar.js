@@ -11,7 +11,7 @@ const MainNavBar = () => {
     return (
         <div className='bg-[#FFC21F] py-3 mt-4'>
             <nav className="w-10/12 mx-auto border-gray-200 px-2 py-4 sm:px-4 rounded">
-                <div className="container flex flex-wrap justify-end md:mr-6 items-center ml-auto">
+                <div className="container flex flex-wrap justify-center md:mr-6 items-center ml-auto">
                     <button
                         onClick={() => setShowMobileMenu(!showMobileMenu)}
                         data-collapse-toggle="mobile-menu" type="button" className="inline-flex items-center p-2 ml-3 text-sm text-gray-100 rounded-lg md:hidden hover:bg-[#f4c030] focus:outline-none  " aria-controls="mobile-menu" aria-expanded="false">

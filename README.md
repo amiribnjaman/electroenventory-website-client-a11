@@ -1,6 +1,6 @@
 # electroinventory (A warehouse website)
 
-Take a look here [electroinventory](https://github.com/facebook/create-react-app).
+Take a look here [electroinventory](https://electronics-inventory-a11.web.app/).
 
 ## Site features
 

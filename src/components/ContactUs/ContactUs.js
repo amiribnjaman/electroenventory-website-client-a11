@@ -4,11 +4,11 @@ import React from 'react';
 
 const ContactUs = () => {
     return (
-        <div className='w-9/12 mx-auto my-20 md:flex gap-12'>
+        <div className='w-9/12 mx-auto my-16 md:my-20 md:flex gap-12'>
             <div className='md:w-2/5'>
                 <div>
                     <h2 className='text-xl font-semibold'>You can message us any time.</h2>
-                    <p className='text-[14px] mt-4 mb-3 font-semibold'>For any enquery you can messge or call us any time. We will try to response as soon as possible. Our customer care operator is 24/7 ready to help you. If delay any time for unexpected reson please wait a moment. </p>
+                    <p className='text-[12px] md:text-[14px] mt-4 mb-3 font-semibold'>For any enquery you can messge or call us any time. We will try to response as soon as possible. Our customer care operator is 24/7 ready to help you. If delay any time for unexpected reson please wait a moment. </p>
                 </div>
                 <div>
                     <div className='flex bg-gray-100 py-2 rounded mb-3 px-4'>

@@ -1,11 +1,12 @@
 import { faEnvelope, faMap, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useNavigate } from 'react';
+import React from 'react';
+import {useNavigate} from 'react-router-dom';
 
 const Contact = () => {
     const navigate = useNavigate()
     return (
-        <div className='py-24 w-10/12 mx-auto md:flex'>
+        <div className='md:py-24 py-16 w-10/12 mx-auto md:flex'>
             <div className='text-center md:text-left md:w-2/5 mr-8 flex flex-col justify-center'>
                 <h2 className='text-2xl font-semibold'>You can contact with us any time.</h2>
                 <p className='text-[13px]'>For secure and fast product warehouse you can stay with electro inventory </p>
