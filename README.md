@@ -6,7 +6,7 @@ Take a look here [electroinventory](https://github.com/facebook/create-react-app
 
 - This is a warehouse website where user can store, delete and manage their products
         
-        - Home page:
+       - Home page:
         - First this site have two simple nav bar 1. Navbar top. here humberger icon, a logo and a login button. This button is dynamic. when user logged in this button will be chaged and user profile and logout button will shown. 2. Main navbar. here a nav list and search box. navs are (Home, (manage inventories, add inventory, my items these are protected) and Blogs ) linkable but search box is static.
         
         - Banner section. Here a banner image and some simple text.
@@ -38,7 +38,7 @@ Take a look here [electroinventory](https://github.com/facebook/create-react-app
 
 ## Technologies
 
-    - Here describing some of the technologies that are used for this project:
+  - Here describing some of the technologies that are used for this project:
 
     - Front-end:
     - React app
