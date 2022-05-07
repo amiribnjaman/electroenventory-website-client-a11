@@ -3,12 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 const ManageInventories = () => {
     const [items, setItems] = useState([])
     const navigate = useNavigate()
     const [spinner, setSpinner] = useState(true)
-
     const [togglePopup, setTogglePopUp] = useState(false)
     const [reload, setReload] = useState(false)
     const [selectedId, setSelectedId] = useState('')
@@ -53,7 +51,7 @@ const ManageInventories = () => {
             })
     }
 
-    // Sl Number
+    // Dynamic Serial Number
     let slNumber = 0
 
     return (

@@ -31,17 +31,23 @@ function App() {
           <ProtectedRoute>
             <InventorySpecificItemDetails />
           </ProtectedRoute>} />
-        <Route path='/myItems' element={
+        <Route path='/myitems' element={
           <ProtectedRoute>
             <MyItems />
           </ProtectedRoute>} />
-          <Route path='/profile' element={
+        <Route path='/addinventory' element={
+        <ProtectedRoute>
+          <AddInventory />
+        </ProtectedRoute>} />
+        <Route path='/manageinventories' element={
+        <ProtectedRoute>
+          <ManageInventories />
+        </ProtectedRoute>} />
+        <Route path='/profile' element={
             <ProtectedRoute>
               <Profile />
             </ProtectedRoute>
           } />
-        <Route path='/addinventory' element={<AddInventory />} />
-        <Route path='/manageInventories' element={<ManageInventories />} />
         <Route path='/*' element={<NotFound />} />
       </Routes>
       <Footer />
