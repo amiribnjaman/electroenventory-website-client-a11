@@ -21,31 +21,31 @@ const MainNavBar = () => {
                     </button>
                     <div className={`${showMobileMenu ? 'block' : 'hidden'} w-full items-center justify-center md:flex md:w-auto" id="mobile-menu`}>
                         <div>
-                            <ul className="flex flex-col mt-4 md:flex-row items-center md:space-x-8 md:mt-0 md:text-[13px] md:font-medium uppercase">
+                            <ul className="flex flex-col mt-4 md:flex-row items-center md:space-x-8 md:mt-0 text-[12px] lg:text-[13px] md:font-medium uppercase">
                                 <li>
-                                    <Link to="/" className="block py-1 md:py-2 pr-4 pl-3 text-[#041E42]  rounded md:bg-transparent md:p-0 dark:text-white" aria-current="page">Home</Link>
+                                    <Link to="/" className="block py-1 md:py-2 px-3 text-[#041E42]  rounded md:bg-transparent md:p-0 dark:text-white" aria-current="page">Home</Link>
                                 </li>
                                 {user?.email ?
                                     <>
                                         <li>
-                                            <Link to="/manageinventories" className="block py-1 md:py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Manage Inventories</Link>
+                                            <Link to="/manageinventories" className="block py-1 md:py-2 px-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Manage Inventories</Link>
                                         </li>
                                         <li>
-                                            <Link to="/addinventory" className="block py-1 md:py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Add Inventory</Link>
+                                            <Link to="/addinventory" className="block py-1 md:py-2 pr-3 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Add Inventory</Link>
                                         </li>
                                         <li>
-                                            <Link to="/myitems" className="block py-1 md:py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">My Items</Link>
+                                            <Link to="/myitems" className="block py-1 md:py-2 px-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">My Items</Link>
                                         </li>
                                     </> : ''}
                                 <li>
-                                    <Link to="/blogs" className="block py-1 md:py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Blogs</Link>
+                                    <Link to="/blogs" className="block py-1 md:py-2 px-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Blogs</Link>
                                 </li>
                                 <li>
-                                    <Link to="/contact-us" className="block py-1 md:py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Contact us</Link>
+                                    <Link to="/contact-us" className="block py-1 md:py-2 px-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Contact us</Link>
                                 </li>
                             </ul>
                         </div>
-                        <div className='ml-4 lg:w-[270px] md:w-[190px]'>
+                        <div className='ml-4 lg:block md:hidden block lg:w-[270px] md:w-[190px]'>
                             <ul>
                                 <li>
                                     <form className="flex items-center">
