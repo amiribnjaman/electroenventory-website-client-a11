@@ -5,12 +5,12 @@ import auth from '../../firebase.init';
 
 const Profile = () => {
     const [user] = useAuthState(auth)
-    console.log(user);
+
     return (
-        <div className='w-10/12 flex mx-auto mt-20 mb-10'>
+        <div className='w-10/12 md:flex mx-auto mt-20 mb-10'>
             {/* Profile dashboard */}
-            <div className='w-2/6 relative'>
-                <aside class=" w-72 relative" aria-label="Sidebar">
+            <div className='md:w-2/6 relative'>
+                <aside class="w-full md:w-72 relative" aria-label="Sidebar">
                     <div className='absolute -top-10 left-24'>
                         {user?.photoURL ? <div class="flex flex-col items-center ">
                             <img class="w-16 h-16 border-2 border-gray-200 p-1 rounded-full" src={user?.photoURL} alt="" />
@@ -27,7 +27,7 @@ const Profile = () => {
                             <p class="text-sm text-gray-500 ">General User</p>
                         </div>}
                     </div>
-                    <div class="overflow-y-auto pb-4 pt-24 px-3 bg-gray-50 rounded dark:bg-gray-800">
+                    <div class="md:overflow-y-auto pb-4 pt-24 px-3 bg-gray-50 rounded dark:bg-gray-800">
 
                         <ul class="space-y-2">
                             <li>
@@ -82,7 +82,7 @@ const Profile = () => {
             </div>
 
             {/* Profile dahsboard */}
-            <div className='w-4/6' id='dashboard'>
+            <div className='mt-6 md:mt-0 md:w-4/6' id='dashboard'>
                 <div class="p-4 w-full min-h-full text-left bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
                     <ol class="relative border-l border-gray-200 dark:border-gray-700">

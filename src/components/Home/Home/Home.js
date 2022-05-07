@@ -3,13 +3,13 @@ import Banner from '../Banner/Banner';
 import Contact from '../Contact/Contact';
 import InventoryItems from '../InventoryItems/InventoryItems';
 import Membership from '../Membership/Membership';
-import Specialties from '../Specialties/Specialties';
+import Services from '../Services/Services';
 
 const Home = () => {
     return (
         <div>
             <Banner />
-            <Specialties />
+            <Services />
             <InventoryItems />
             <Membership />
             <Contact />

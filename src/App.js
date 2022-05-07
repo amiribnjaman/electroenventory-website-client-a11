@@ -15,6 +15,7 @@ import NotFound from './components/NotFound/NotFound'
 import ForgotPassword from './components/Auth/ForgotPassword/ForgotPassword';
 import 'react-toastify/dist/ReactToastify.min.css';
 import Profile from './components/Porfile/Profile';
+import Blogs from './components/Blogs/Blogs'
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
               <Profile />
             </ProtectedRoute>
           } />
+          <Route path='/blogs' element={<Blogs />} />
         <Route path='/*' element={<NotFound />} />
       </Routes>
       <Footer />

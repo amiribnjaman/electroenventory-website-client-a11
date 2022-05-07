@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# electroinvetory (A warehouse website)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Take a look here [electroinventory](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Site features
 
-In the project directory, you can run:
+- This is a warehouse website where user can store, delete and manage their products
+        
+        - Home page:
+        - First this site have two simple nav bar 1. Navbar top. here humberger icon, a logo and a login button. This button is dynamic. when user logged in this button will be chaged and user profile and logout button will shown. 2. Main navbar. here a nav list and search box. navs are (Home, (manage inventories, add inventory, my items these are protected) and Blogs ) linkable but search box is static.
+        
+        - Banner section. Here a banner image and some simple text.
 
-### `npm start`
+        - Services section. Here simply showing services as offer that this site offering. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+        - The inventory section. This section is about inventory. 6 inventory is showing. An image, name, price, spplier, short description, stock and a button. If the button get click then user will be redirected as his role. If user logged in the he will redirected into details page otherwise redirected into login page.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+        - A simple get premier section. this is static.
 
-### `npm test`
+        - Contact us section. here showing company addresses and contact info and a button for contact.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+        - and a simple footer. here a logo text and some social media icons.
 
-### `npm run build`
+        - Manage inventories page: 
+        - This page will shown all inventories and a edit and a delete button. edit button will redirected to inventory/:id page and delete button will delete a specific item.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+        - Add inventory page: 
+        - Here a user can post a new item
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+        - My itms page: 
+        - Here will shown all inventories that logged in user added. Here he can edit and delete a item.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+        - Blogs 
+        - Here added some bolgs
 
-### `npm run eject`
+        - This site also included a login, signup and forgotten password page.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    - Here describing some of the technologies that are used for this project:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    - Front-end:
+    - React app
+    - React router
+    - Firebae (For user authentication)
+    - react firebase hooks
+    - tailwind (css framework)
+    - flowbite (tailwind library)
+    - React toastity (for showing message)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    - Back-end:
+    - nodejs (js runtime)
+    - express (nodejs library) etc.

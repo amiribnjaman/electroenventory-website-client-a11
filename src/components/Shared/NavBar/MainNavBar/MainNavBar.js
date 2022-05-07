@@ -38,7 +38,7 @@ const MainNavBar = () => {
                                         </li>
                                     </> : ''}
                                 <li>
-                                    <Link to="/" className="block py-1 md:py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Blogs</Link>
+                                    <Link to="/blogs" className="block py-1 md:py-2 pr-4 pl-3 text-black  rounded md:bg-transparent  md:p-0 dark:text-white" aria-current="page">Blogs</Link>
                                 </li>
                             </ul>
                         </div>

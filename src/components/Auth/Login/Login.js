@@ -51,7 +51,6 @@ const Login = () => {
 
     }
 
-
     // handle login user password
     const handleUserPasswordBlur = e => {
         const password = e.target.value
@@ -61,7 +60,6 @@ const Login = () => {
             setuserPassword({ error: <p className='text-[13px] text-white shadow bg-blue-600 rounded-full pl-3 mt-1 font-semibold'>Please provide your password.</p> })
         }
     }
-
 
     // Handle login form
     const handleLoginForm = e => {
@@ -128,7 +126,7 @@ const Login = () => {
                             </div>
                             {
                                 error ?
-                                    <p className='text-[13px] text-white my-2 shadow bg-blue-600 rounded-full text-center font-semibold'>{error ? 'Something wrong. Please check your connection!' : ''}</p> : ''
+                                    <p className='text-[13px] text-white my-2 shadow bg-blue-600 rounded-full text-center font-semibold'>{error ? 'Something wrong. Please check your connection! or try again.' : ''}</p> : ''
                             }
                             {customLoginError && customLoginError}
                             <div class="mb-4 mt-1">
