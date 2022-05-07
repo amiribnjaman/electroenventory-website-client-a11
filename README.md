@@ -1,13 +1,14 @@
-# electroinvetory (A warehouse website)
+# electroinventory (A warehouse website)
 
 Take a look here [electroinventory](https://github.com/facebook/create-react-app).
 
 ## Site features
 
-- This is a warehouse website where user can store, delete and manage their products
-        
+- This is a warehouse website where user can store, delete and manage their products.
+  - This site is not for every user. For use this site for magage products a user have to be create a new account or login with existing account. Otherwise user couldn't access all the route
+
 - Home page:
-- First this site have two simple nav bar 1. Navbar top. here humberger icon, a logo and a login button. This button is dynamic. when user logged in this button will be chaged and user profile and logout button will shown. 2. Main navbar. here a nav list and search box. navs are (Home, (manage inventories, add inventory, my items these are protected) and Blogs ) linkable but search box is static.
+- First this site have two simple nav bar 1. Navbar top. here humberger icon, a logo and a login button. This button is dynamic. when user logged in this button will be chaged and user profile and logout button will shown. 2. Main navbar. here a nav list and search box. navs are (Home, (manage inventories, add inventory, my items these are protected, Blogs and contact us ) linkable but search box is static.
         
 - Banner section. Here a banner image and some simple text.
 
@@ -27,11 +28,13 @@ Take a look here [electroinventory](https://github.com/facebook/create-react-app
 - Add inventory page: 
 - Here a user can post a new item
 
-- My itms page: 
+- My itmes page: 
 - Here will shown all inventories that logged in user added. Here he can edit and delete a item.
 
-- Blogs 
-        - Here added some bolgs
+- Blogs:
+  - Here added some bolgs
+- Contact us:
+  - Here a simple static form and address and some text.
 
 - This site also included a login, signup and forgotten password page.
 

@@ -39,7 +39,7 @@ const ForgotPassword = () => {
             })
             e.target.reset()
         }
-        
+
     }
 
     return (
@@ -57,11 +57,11 @@ const ForgotPassword = () => {
                             <div className='user-vector w-[70px] h-[70px] mx-auto mb-2'>
                                 <img className='w-full h-full rounded-full' src={user} alt="" />
                             </div>
-                            <div class="mb-4 mt-1">
-                                <input type="email" id="email" name='email' class="bg-gray-50 border border-gray-300 text-gray-900 rounded-full text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Your Email" required="" />
+                            <div className="mb-4 mt-1">
+                                <input type="email" id="email" name='email' className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Your Email" required="" />
                             </div>
                             <div className=''>
-                                <button type="submit" class=" mx-auto block hover:bg-[#f8b705] focus:ring-4 bg-[#FFC21F]  text-black focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm w-full sm:w-auto px-16 py-2.5 text-center ">Send</button>
+                                <button type="submit" className=" mx-auto block hover:bg-[#f8b705] focus:ring-4 bg-[#FFC21F]  text-black focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm w-full sm:w-auto px-16 py-2.5 text-center ">Send</button>
                             </div>
                         </form>
                     </div>

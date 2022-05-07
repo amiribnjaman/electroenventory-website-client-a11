@@ -14,8 +14,9 @@ import MyItems from './components/MyItems/MyItems';
 import NotFound from './components/NotFound/NotFound'
 import ForgotPassword from './components/Auth/ForgotPassword/ForgotPassword';
 import 'react-toastify/dist/ReactToastify.min.css';
-import Profile from './components/Porfile/Profile';
+import Profile from './components/Profile/Profile';
 import Blogs from './components/Blogs/Blogs'
+import ContactUs from './components/ContactUs/ContactUs';
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
             </ProtectedRoute>
           } />
           <Route path='/blogs' element={<Blogs />} />
+          <Route path='/contact-us' element={<ContactUs />} />
         <Route path='/*' element={<NotFound />} />
       </Routes>
       <Footer />

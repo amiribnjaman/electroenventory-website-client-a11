@@ -78,7 +78,7 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
     if (user) {
         // send user email to server for jwt verification
-        fetch('http://localhost:4000/login', {
+        fetch('https://mysterious-dusk-97909.herokuapp.com/login', {
             method: 'POST',
             body: JSON.stringify({ email: user.user.email }),
             headers: {
@@ -129,16 +129,16 @@ const Login = () => {
                                     <p className='text-[13px] text-white my-2 shadow bg-blue-600 rounded-full text-center font-semibold'>{error ? 'Something wrong. Please check your connection! or try again.' : ''}</p> : ''
                             }
                             {customLoginError && customLoginError}
-                            <div class="mb-4 mt-1">
+                            <div className="mb-4 mt-1">
                                 <input
                                     onBlur={handleUserEmailBlur}
-                                    type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-full text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Your Email" required="" />
+                                    type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Your Email" required="" />
                                 {userEmail.error && userEmail.error}
                             </div>
-                            <div class="mb-4 relative">
+                            <div className="mb-4 relative">
                                 <input
                                     onBlur={handleUserPasswordBlur}
-                                    type={!passwordShow ? 'password' : 'text'} id="password" class="bg-gray-50 rounded-full border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required="" placeholder='Your Password' />
+                                    type={!passwordShow ? 'password' : 'text'} id="password" className="bg-gray-50 rounded-full border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required="" placeholder='Your Password' />
 
                                 {/* Show and hide password */}
                                 <div onClick={() => setPasswordShow(!passwordShow)} className='absolute top-2 right-5 cursor-pointer text-slate-400'>
@@ -149,7 +149,7 @@ const Login = () => {
                             </div>
                             {requiredErrors && requiredErrors}
                             <div className=''>
-                                <button type="submit" class="text-slate-800 mx-auto block hover:bg-[#f8b705] focus:ring-4 bg-[#FFC21F] focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm w-full sm:w-auto px-16 py-2.5 text-center ">Login</button>
+                                <button type="submit" className="text-slate-800 mx-auto block hover:bg-[#f8b705] focus:ring-4 bg-[#FFC21F] focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm w-full sm:w-auto px-16 py-2.5 text-center ">Login</button>
                             </div>
                         </form>
 

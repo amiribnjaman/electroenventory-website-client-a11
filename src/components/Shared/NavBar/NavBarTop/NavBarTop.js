@@ -10,7 +10,7 @@ import useFirebase from '../../../hooks/useFirebase/useFirebase';
 const NavBarTop = () => {
     const [user, loading, error] = useAuthState(auth);
     const { handleLogout } = useFirebase()
-    const [showUserProfile, setShowUserPorfile] = useState(false)
+    const [showUserProfile, setShowUserProfile] = useState(false)
     return (
         <div>
             <nav className="w-10/12 mx-auto border-gray-200 px-2 py-2 sm:px-4 rounded dark:bg-gray-800">
@@ -34,7 +34,7 @@ const NavBarTop = () => {
                                 {
                                     user?.email ?
                                         <button
-                                            onClick={() => setShowUserPorfile(!showUserProfile)}
+                                            onClick={() => setShowUserProfile(!showUserProfile)}
                                             className="block max-h-10 w-14 py-2 mt-4 pr-4 pl-3 rounded md:bg-transparent text-black md:p-0 dark:text-white" aria-current="page">
                                                 
                                             <FontAwesomeIcon className='w-8 ml-1 text-[17px] text-black' icon={faUserAlt} />

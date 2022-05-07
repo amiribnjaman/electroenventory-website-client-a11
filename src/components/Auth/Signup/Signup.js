@@ -25,9 +25,8 @@ const Signup = () => {
         loading,
         signupError,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-    const [updateProfile, updating, profileError] = useUpdateProfile(auth);
 
-    // Settings user informations and errors into state
+    // Set user informations and errors into state
     const [userName, setUserName] = useState({ name: '', error: '' })
     const [userEmail, setUserEmail] = useState({ email: '', error: '' })
     const [userPassword, setUserPassword] = useState({ password: '', error: '' })
@@ -89,18 +88,7 @@ const Signup = () => {
         try {
             if (userName.name && userEmail.email && userPassword.password && userConfirmPassword.confirmPassword) {
                 await createUserWithEmailAndPassword(userEmail.email, userPassword.password)
-                console.log(auth.currentUser);
-                console.log(user?.UserImpl?.displayName);
-                await updateProfile(auth.currentUser, {
-                    displayName: "Jane Q. User"
-                }).then(() => {
-                    console.log('name added');
-                }).catch((error) => {
-                    // An error occurred
-                    // ...
-                })
                 setErrors('')
-
                 e.target.reset()
             } else {
                 setErrors(<p className='text-[13px] text-white shadow mb-2 bg-blue-600 rounded-full text-center font-semibold'>Please fill up all required fields.</p>)
@@ -126,7 +114,7 @@ const Signup = () => {
     let from = location.state?.from?.pathname || "/";
     if (user) {
         // send user email to server for jwt verification
-        fetch('http://localhost:4000/login', {
+        fetch('https://mysterious-dusk-97909.herokuapp.com/login', {
             method: 'POST',
             body: JSON.stringify({ email: user.user.email }),
             headers: {
@@ -141,7 +129,6 @@ const Signup = () => {
     }
 
 
-
     return (
         <>
             {/* go back button for small devices  */}
@@ -150,6 +137,7 @@ const Signup = () => {
                     <FontAwesomeIcon icon={faLeftLong} /> <span className=''>Back</span>
                 </button>
             </div>
+
 
             <div className='shadow-xl shadow-[rgb(132,179,223)] mt-14 mb-10 w-10/12 mx-auto md:flex'>
                 <div className='login-vector hidden md:block md:w-1/2 relative'>
@@ -168,21 +156,21 @@ const Signup = () => {
                                 <p className='text-sm text-white py-1 mb-1 shadow bg-blue-600 rounded-full text-center font-semibold'>{error && 'Something wrong. Please try agin!'}
                                 </p> : ''}
                             {customErr && customErr}
-                            <div class="mb-3">
+                            <div className="mb-3">
                                 <input
-                                    onBlur={handleNameBlur} type="text" id="text" name='name' class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Your Name*" required="" />
+                                    onBlur={handleNameBlur} type="text" id="text" name='name' className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Your Name*" required="" />
                                 {userName?.error && userName?.error}
                             </div>
-                            <div class="mb-3">
+                            <div className="mb-3">
                                 <input
                                     onBlur={handleEmailBlur}
-                                    type="email" id="email" name='email' class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Your Email*" required="" />
+                                    type="email" id="email" name='email' className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Your Email*" required="" />
                                 {userEmail?.error && userEmail?.error}
                             </div>
-                            <div class="mb-3 relative">
+                            <div className="mb-3 relative">
                                 <input
                                     onBlur={handlePasswordBlur}
-                                    type={!showPassword ? 'password' : 'text'} name='password' id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder='Password*' required="" />
+                                    type={!showPassword ? 'password' : 'text'} name='password' id="password" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder='Password*' required="" />
 
                                 {/* Show and hide password */}
                                 <div
@@ -195,10 +183,10 @@ const Signup = () => {
 
                                 {userPassword?.error && userPassword?.error}
                             </div>
-                            <div class="mb-5 relative">
+                            <div className="mb-5 relative">
                                 <input
                                     onBlur={handleConfirmPasswordBlur}
-                                    type={!showConfirmPassword ? 'password' : 'text'} name='confirmPassword' id="repeat-password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required="" placeholder='Confirm Password*' />
+                                    type={!showConfirmPassword ? 'password' : 'text'} name='confirmPassword' id="repeat-password" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required="" placeholder='Confirm Password*' />
 
                                 {/* Show and hide confirm password */}
                                 <div

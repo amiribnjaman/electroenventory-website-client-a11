@@ -23,7 +23,7 @@ const useFirebase = () => {
     let from = location.state?.from?.pathname || "/";
     if (user) {
         // send user email to server for jwt verification
-        fetch('http://localhost:4000/login', {
+        fetch('https://mysterious-dusk-97909.herokuapp.com/login', {
             method: 'POST',
             body: JSON.stringify({ email: user.user.email }),
             headers: {
