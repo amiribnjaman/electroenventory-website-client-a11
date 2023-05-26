@@ -16,7 +16,7 @@ const MyItems = () => {
     const [selectedItemId, setSelectedItemId] = useState('')
 
     useEffect(() => {
-        fetch(`https://mysterious-dusk-97909.herokuapp.com/myItems/${user?.email}`, {
+        fetch(`https://electroenventory-website-server-a11.vercel.app/myItems/${user?.email}`, {
             headers: {
                 'authorization': `${localStorage.getItem("accessToken")} ${user.email}`
             }
@@ -48,7 +48,7 @@ const MyItems = () => {
     // Handle delete item
     const handleDeleteItem = () => {
         const id = selectedItemId
-        fetch(`https://mysterious-dusk-97909.herokuapp.com/inventory/${id}`, {
+        fetch(`https://electroenventory-website-server-a11.vercel.app/inventory/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

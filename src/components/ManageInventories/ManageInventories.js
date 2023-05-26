@@ -13,7 +13,7 @@ const ManageInventories = () => {
 
     // All inventories load
     useEffect(() => {
-        fetch('https://mysterious-dusk-97909.herokuapp.com/allInventory')
+        fetch('https://electroenventory-website-server-a11.vercel.app/allInventory')
             .then(res => res.json())
             .then(data => {
                 setItems(data)
@@ -41,7 +41,7 @@ const ManageInventories = () => {
     // Handle delete item
     const handleDeleteItem = () => {
         const id = selectedId
-        fetch(`https://mysterious-dusk-97909.herokuapp.com/inventory/${id}`, {
+        fetch(`https://electroenventory-website-server-a11.vercel.app/inventory/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
