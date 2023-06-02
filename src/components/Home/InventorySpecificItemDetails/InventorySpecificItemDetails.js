@@ -15,7 +15,7 @@ const InventorySpecificItemDetails = () => {
 
     // Load specific inventory by id
     useEffect(() => {
-        fetch(`https://electroenventory-website-server-a11.vercel.app/inventory/${id}`)
+        fetch(`https://electroenventory.onrender.com/inventory/${id}`)
             .then(res => res.json())
             .then(data => {
                 setItem(data)
@@ -29,7 +29,7 @@ const InventorySpecificItemDetails = () => {
         if (quantity > 0) {
             newQuantity = +(quantity - 1)
             setNewQuantity(String(newQuantity))
-            fetch(`https://electroenventory-website-server-a11.vercel.app/inventory/${id}/${newQuantity}`, {
+            fetch(`https://electroenventory.onrender.com/inventory/${id}/${newQuantity}`, {
                 method: 'PUT',
             })
                 .then(res => res.json)
@@ -46,7 +46,7 @@ const InventorySpecificItemDetails = () => {
         e.preventDefault()
         if (reStock > 0) {
             const newQuantity = parseInt(reStock) + parseInt(quantity)
-            fetch(`https://electroenventory-website-server-a11.vercel.app/inventory/${id}/${newQuantity}`, {
+            fetch(`https://electroenventory.onrender.com/inventory/${id}/${newQuantity}`, {
                 method: 'PUT'
             })
                 .then(data => data.json())

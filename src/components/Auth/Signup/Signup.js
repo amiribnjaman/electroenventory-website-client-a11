@@ -114,7 +114,7 @@ const Signup = () => {
     let from = location.state?.from?.pathname || "/";
     if (user) {
         // send user email to server for jwt verification
-        fetch('https://electroenventory-website-server-a11.vercel.app/login', {
+        fetch('https://electroenventory.onrender.com/login', {
             method: 'POST',
             body: JSON.stringify({ email: user.user.email }),
             headers: {

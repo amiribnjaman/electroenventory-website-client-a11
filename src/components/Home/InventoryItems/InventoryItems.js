@@ -10,8 +10,8 @@ const InventoryItems = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch('https://electroenventory-website-server-a11.vercel.app/inventoryItems')
-        // fetch('http://localhost:4000/inventoryItems')
+        fetch('https://electroenventory.onrender.com/inventoryItems')
+            // fetch('http://localhost:4000/inventoryItems')
             .then(res => res.json())
             .then(data => {
                 setInventoryItems(data)

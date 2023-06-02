@@ -16,7 +16,7 @@ const AddInventory = () => {
 
         const data = { name: name, image: imageUrl, description: description, price: price, quantity: quantity, spplier_name: spplier_name, admin_email: user?.email }
 
-        fetch('https://electroenventory-website-server-a11.vercel.app/inventory', {
+        fetch('https://electroenventory.onrender.com/inventory', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
